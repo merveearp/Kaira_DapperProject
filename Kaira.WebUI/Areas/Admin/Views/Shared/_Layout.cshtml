@@ -1,0 +1,42 @@
+﻿
+<!doctype html>
+<html lang="en" data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" dir="ltr" data-pc-theme="light">
+  <!-- [Head] start -->
+@await Component.InvokeAsync("_AdminLayoutHeadComponent")
+ 
+  <!-- [Head] end -->
+ 
+  <!-- [Body] Start -->
+
+  <body>
+   
+   <!-- [ Pre-loader ] start -->
+@await Component.InvokeAsync("_AdminLayoutPreloaderComponent")
+
+<!-- [ Pre-loader ] End -->
+ 
+<!-- [ Sidebar Menu ] start -->
+    @await Component.InvokeAsync("_AdminLayoutSidebarComponent")
+
+<!-- [ Sidebar Menu ] end -->
+ 
+
+<!-- [ Header Topbar ] start -->
+    @await Component.InvokeAsync("_AdminLayoutHeaderComponent")
+
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    @RenderBody()
+    <!-- [ Main Content ] end -->
+    @await Component.InvokeAsync("_AdminLayoutFooterComponent")
+    
+    @await Component.InvokeAsync("_AdminLayoutScriptsComponent")
+ 
+    <!-- Required Js -->
+
+  </body>
+  <!-- [Body] end -->
+</html>
