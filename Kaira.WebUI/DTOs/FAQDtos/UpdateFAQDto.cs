@@ -1,0 +1,9 @@
+﻿namespace Kaira.WebUI.DTOs.FAQDtos
+{
+    public class UpdateFAQDto
+    {
+        public int FAQId { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
+    }
+}

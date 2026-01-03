@@ -1,0 +1,81 @@
+﻿@model UpdateCategoryDto
+
+@{
+    ViewData["Title"] = "Kategori Güncelle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="mb-4">
+    <h3 class="fw-bold"> Kategori Güncelle </h3>
+    <p class="text-muted mb-0">
+        <small class="text-primary">Kategori bilgilerini girerek  kategoriyi güncelleyebilirsiniz </small>
+    </p>
+</div>
+
+<form method="post">
+
+    <input type="hidden" asp-for="CategoryId" />
+
+    <div class="update-layout">
+
+       
+        <div class="update-form">
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Kategori Adı</label>
+                <input asp-for="Name"
+                       class="form-control form-control-lg" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Görsel Yolu</label>
+                <input asp-for="ImageUrl"
+                       id="imageUrlInput"
+                       class="form-control"
+                       placeholder="/images/categories/men.jpg" />
+                <small class="text-muted">
+                    Değiştirince sağda önizleme güncellenir
+                </small>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a href="/Admin/Category/Index" class="btn btn-light-danger px-4">
+                    İptal
+                </a>
+                <button type="submit" class="btn btn-light-success">
+                    Güncelle
+                </button>
+            </div>
+
+        </div>
+
+       
+        <div class="update-preview">
+            <label class="form-label fw-semibold d-block mb-2">
+                Görsel Önizleme
+            </label>
+
+            <div class="image-preview-box">
+                <img id="imagePreview"
+                     src="@Model.ImageUrl"
+                     alt="Preview" />
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+<script>
+    const imageUrlInput = document.getElementById("imageUrlInput");
+    const imagePreview = document.getElementById("imagePreview");
+
+    imageUrlInput.addEventListener("input", function () {
+        imagePreview.src = this.value;
+    });
+
+    imagePreview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

@@ -1,0 +1,50 @@
+﻿@model List<ResultCategoryDto>
+
+@{
+    ViewData["Title"] = "Kategoriler";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-end mb-4">
+    <a href="/Admin/Category/CreateCategory"
+       class="btn btn-sm btn-success">
+        Yeni Kategori Ekle
+    </a>
+</div>
+
+
+<div class="category-grid">
+
+    @foreach (var item in Model)
+    {
+        <div class="category-card">
+
+            <div class="category-image-wrapper">
+                <img src="@Url.Content(item.ImageUrl)"
+                     alt="@item.Name"
+                     class="category-image" />
+            </div>
+
+            <div class="card-body text-center">
+                <h5 class="fw-bold mb-3">@item.Name</h5>
+
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="/Admin/Category/UpdateCategory/@item.CategoryId"
+                       class="btn btn-sm btn-light-primary">
+                        Düzenle
+                    </a>
+
+                    <a href="/Admin/Category/DeleteCategory/@item.CategoryId"
+                       class="btn btn-sm btn-outline-danger"
+                       onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                        Sil
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+

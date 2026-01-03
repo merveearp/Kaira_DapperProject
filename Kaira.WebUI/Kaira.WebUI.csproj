@@ -17,10 +17,11 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\ViewComponents\Home\" />
     <Folder Include="Controllers\" />
-    <Folder Include="DTOs\CollectionDtos\" />
+    <Folder Include="DTOs\WearDtos\" />
     <Folder Include="DTOs\ProductDtos\" />
-    <Folder Include="DTOs\TestimonialDtos\" />
     <Folder Include="Models\" />
+    <Folder Include="Repositories\WearRepositories\" />
+    <Folder Include="Repositories\ProductRepositories\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\bootstrap\" />

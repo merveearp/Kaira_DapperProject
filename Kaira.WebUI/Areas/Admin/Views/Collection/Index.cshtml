@@ -1,0 +1,57 @@
+﻿@model List<ResultCollectionDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-end mb-4">
+    <a href="/Admin/Collection/CreateCollection"
+       class="btn btn-sm btn-dark">
+        Yeni Koleksiyon Ekle
+    </a>
+</div>
+
+<div class="collection-grid">
+
+    @foreach (var item in Model)
+    {
+        <div class="collection-card">
+
+            <div class="collection-image-wrapper">
+                <img src="@Url.Content(item.ImageUrl)"
+                     alt="@item.Title"
+                     class="collection-image" />
+            </div>
+
+            <div class="collection-body text-center">
+                <h5 class="fw-bold mb-2">@item.Title</h5>
+
+                <p class="collection-description">
+                    @(string.IsNullOrEmpty(item.Description)
+                                    ? ""
+                                    : item.Description.Length > 80
+                                    ? item.Description.Substring(0, 80) + "..."
+                                    : item.Description)
+
+                </p>
+
+                <div class="d-flex justify-content-center gap-2 mt-3">
+                    <a href="/Admin/Collection/UpdateCollection/@item.CollectionId"
+                       class="btn btn-sm btn-light-primary">
+                        Düzenle
+                    </a>
+
+                    <a href="/Admin/Collection/DeleteCollection/@item.CollectionId"
+                       class="btn btn-sm btn-outline-danger"
+                       onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                        Sil
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+

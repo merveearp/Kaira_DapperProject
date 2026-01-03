@@ -11,7 +11,7 @@ namespace Kaira.WebUI.Repositories.CategoryRepositories
         
         public async Task CreateAsync(CreateCategoryDto categoryDto)
         {
-            string query = "Insert into Categories(Name) values (@Name)";
+            string query = "Insert into Categories(Name, ImageUrl) values (@Name,@ImageUrl)";
             var parameters = new DynamicParameters(categoryDto);
             await _db.ExecuteAsync(query, parameters);
         }
@@ -34,13 +34,13 @@ namespace Kaira.WebUI.Repositories.CategoryRepositories
         {
             string query = "Select * From Categories where CategoryId =@CategoryId ";
             var parameters = new DynamicParameters();
-            parameters.Add("@CategoryId", id);
+            parameters.Add("CategoryId", id);
             return await _db.QueryFirstOrDefaultAsync<UpdateCategoryDto>(query,parameters);
         }
 
         public async Task UpdateAsync(UpdateCategoryDto categoryDto)
         {
-            string query = "Update Categories set Name = @Name where CategoryId =@CategoryId";
+            string query = "Update Categories set Name = @Name, ImageUrl=@ImageUrl where CategoryId =@CategoryId";
             var parameters = new DynamicParameters(categoryDto);
             await _db.ExecuteAsync(query, parameters);
         }

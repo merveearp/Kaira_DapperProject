@@ -29,8 +29,19 @@
 
 
     <!-- [ Main Content ] start -->
-    @RenderBody()
+  
+    <div class="pc-container">
+        <div class="pc-content">
+          
+            <!-- [ Main Content ] start -->
+            @RenderBody()
+
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+
     <!-- [ Main Content ] end -->
+
     @await Component.InvokeAsync("_AdminLayoutFooterComponent")
     
     @await Component.InvokeAsync("_AdminLayoutScriptsComponent")
