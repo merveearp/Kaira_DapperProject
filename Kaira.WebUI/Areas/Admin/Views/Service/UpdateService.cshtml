@@ -1,0 +1,86 @@
+﻿@model UpdateServiceDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mb-5">
+    <h3 class="fw-bold mb-2">Servis Güncelle</h3>
+    <p class="text-muted mb-0">
+        Mevcut servis bilgilerini güncelleyebilirsiniz
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+
+        <form method="post">
+
+
+            <input type="hidden" asp-for="ServiceId" />
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    Servis Başlığı
+                </label>
+                <input asp-for="Title"
+                       class="form-control form-control-lg"
+                       placeholder="Örn: Online Shopping" />
+            </div>
+
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    Açıklama
+                </label>
+                <textarea asp-for="Description"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Servis hakkında kısa açıklama">
+                </textarea>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    İkon (Bootstrap Icons)
+                </label>
+                <input asp-for="Icon"
+                       id="iconInput"
+                       class="form-control"
+                       placeholder="bi-calendar" />
+
+                <small class="text-muted d-block mt-1">
+                    Örn: bi-calendar, bi-bag, bi-gift, bi-arrow-repeat
+                </small>
+            </div>
+
+            <div class="mb-4 text-center">
+                <div class="service-icon-preview">
+                    <i id="iconPreview" class="@Model.Icon"></i>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 pt-2">
+                <a href="/Admin/Service/Index"
+                   class="btn btn-light-danger px-4">
+                    İptal
+                </a>
+                <button type="submit"
+                        class="btn btn-light-primary px-4">
+                    Güncelle
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const iconInput = document.getElementById("iconInput");
+    const iconPreview = document.getElementById("iconPreview");
+
+    iconInput.addEventListener("input", function () {
+        iconPreview.className = this.value || "bi bi-calendar";
+    });
+</script>

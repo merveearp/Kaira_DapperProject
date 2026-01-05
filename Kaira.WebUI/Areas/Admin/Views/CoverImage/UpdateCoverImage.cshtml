@@ -1,0 +1,78 @@
+﻿@model UpdateCoverImageDto
+@{
+    ViewData["Title"] = "UpdateCoverImage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mb-4">
+    <h4 class="fw-bold">Kapak Görseli Güncelle</h4>
+    <p class="text-muted mb-0">
+        Kapak görselinin yolunu güncelleyebilirsiniz
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+
+        <form method="post">
+            <input type="hidden" asp-for="CoverId" />
+
+
+            <div class="update-layout">
+
+
+                <div class="update-form">
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Görsel Yolu
+                        </label>
+                        <input asp-for="CoverImage"
+                               id="coverImageInput"
+                               class="form-control"
+                               placeholder="/images/instagram/cover1.jpg" />
+                        <small class="text-muted">
+                            Örn: /images/instagram/cover2.jpg
+                        </small>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/Admin/CoverImage/Index"
+                           class="btn btn-light-danger">
+                            İptal
+                        </a>
+                        <button type="submit"
+                                class="btn btn-light-primary">
+                            Güncelle
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="update-preview">
+                    <div class="image-preview-box">
+                        <img id="coverImagePreview"
+                             src="@Model.CoverImage"
+                             alt="Cover Image" />
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("coverImageInput");
+    const preview = document.getElementById("coverImagePreview");
+
+    input.addEventListener("input", function () {
+        preview.src = this.value;
+    });
+
+    preview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

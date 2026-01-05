@@ -29,8 +29,8 @@ namespace Kaira.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateCategory(int id)
         {
-            var category = await _categoryRepository.GetByIdAsync(id);
-            return View(category);
+            var value = await _categoryRepository.GetByIdAsync(id);
+            return View(value);
         }
 
         [HttpPost]

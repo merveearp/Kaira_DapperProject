@@ -1,0 +1,29 @@
+﻿@model List<ResultCoverImageDto>
+@*
+   _UICoverImageComponent
+*@
+
+
+<section class="instagram-section py-5">
+    <div class="container mb-4 text-center">
+        <h3 class="instagram-title text-uppercase">
+            Instagram'dan
+        </h3>
+        <p class="instagram-subtitle">
+            KAIRA dünyasından ilham veren kareler
+        </p>
+    </div>
+
+    <div class="row g-0 instagram-grid">
+        @foreach (var item in Model)
+        {
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="insta-item">
+                    <img src="@item.CoverImage"
+                         alt="KAIRA Instagram"
+                         class="insta-image img-fluid">
+                </div>
+            </div>
+        }
+    </div>
+</section>

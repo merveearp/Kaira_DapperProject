@@ -1,0 +1,32 @@
+﻿@model UpdateContactDto
+@*
+    _LayoutFooterContactComponent
+*@
+
+<div class="col-md-3 col-sm-6">
+    <div class="footer-menu footer-menu-004 border-animation-left">
+        <h5 class="widget-title text-uppercase mb-4">İletişim</h5>
+   
+        <p>
+            @Model.Address
+        </p>
+
+        <p>
+            <a href="mailto:@Model.Email"
+               class="item-anchor">
+                @Model.Email
+            </a>
+        </p>
+     <p>
+            <a href="tel:@Model.PhoneNumber"
+               class="item-anchor">
+                @Model.PhoneNumber
+            </a>
+        </p>
+
+
+        <p class="small text-muted">
+            @Model.Info
+        </p>
+    </div>
+</div>

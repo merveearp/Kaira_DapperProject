@@ -1,71 +1,94 @@
-﻿
+﻿@model List<ResultBlogDto>
 @*
     _UIBlogComponent
 *@
+
 <section class="blog py-5">
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-            <h4 class="text-uppercase">Read Blog Posts</h4>
-            <a href="index.html" class="btn-link">View All</a>
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-4">
+            <h4 class="text-uppercase fw-bold">Bloglarımızı Okuyun</h4>
+            <a asp-controller="Blog"
+               asp-action="Index"
+               class="btn-link text-decoration-none">
+                Tüm Blogları İncele
+            </a>
         </div>
+
         <div class="row">
-            <div class="col-md-4">
-                <article class="post-item">
-                    <div class="post-image">
-                        <a href="index.html">
-                            <img src="~/images/post-image1.jpg" alt="image" class="post-grid-image img-fluid">
-                        </a>
-                    </div>
-                    <div class="post-content d-flex flex-wrap gap-2 my-3">
-                        <div class="post-meta text-uppercase fs-6 text-secondary">
-                            <span class="post-category">Fashion /</span>
-                            <span class="meta-day"> jul 11, 2022</span>
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <article class="post-item h-100">
+
+                        <div class="post-image overflow-hidden rounded">
+                            <a asp-controller="Blog"
+                               asp-action="BlogDetail"
+                               asp-route-id="@item.BlogId">
+                                <img src="@item.CoverImage"
+                                     alt="@item.Title"
+                                     class="post-grid-image img-fluid blog-img">
+
+                            </a>
                         </div>
-                        <h5 class="post-title text-uppercase">
-                            <a href="index.html">How to look outstanding in pastel</a>
-                        </h5>
-                        <p>Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</p>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="post-item">
-                    <div class="post-image">
-                        <a href="index.html">
-                            <img src="~/images/post-image2.jpg" alt="image" class="post-grid-image img-fluid">
-                        </a>
-                    </div>
-                    <div class="post-content d-flex flex-wrap gap-2 my-3">
-                        <div class="post-meta text-uppercase fs-6 text-secondary">
-                            <span class="post-category">Fashion /</span>
-                            <span class="meta-day"> jul 11, 2022</span>
+
+                        <div class="post-content my-3">
+
+                            <div class="post-meta text-uppercase fs-6 text-secondary mb-2">
+                                <span class="post-category">@item.Subtitle</span>
+                            </div>
+
+                            <h5 class="post-title text-uppercase fw-semibold">
+                                <a asp-controller="Blog"
+                                   asp-action="BlogDetail"
+                                   asp-route-id="@item.BlogId"
+                                   class="text-dark text-decoration-none">
+                                    @item.Title
+                                </a>
+                            </h5>
+
+                            <p class="text-muted">
+                                @(item.Description.Length > 100
+                                    ? item.Description.Substring(0, 100) + "..."
+                                    : item.Description)
+                            </p>
+
+                            <a asp-controller="Blog"
+                               asp-action="BlogDetail"
+                               asp-route-id="@item.BlogId"
+                               class="btn-link text-decoration-none">
+                                Devamını Oku
+                            </a>
+
                         </div>
-                        <h5 class="post-title text-uppercase">
-                            <a href="index.html">Top 10 fashion trend for summer</a>
-                        </h5>
-                        <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="post-item">
-                    <div class="post-image">
-                        <a href="index.html">
-                            <img src="~/images/post-image3.jpg" alt="image" class="post-grid-image img-fluid">
-                        </a>
-                    </div>
-                    <div class="post-content d-flex flex-wrap gap-2 my-3">
-                        <div class="post-meta text-uppercase fs-6 text-secondary">
-                            <span class="post-category">Fashion /</span>
-                            <span class="meta-day"> jul 11, 2022</span>
-                        </div>
-                        <h5 class="post-title text-uppercase">
-                            <a href="index.html">Crazy fashion with unique moment</a>
-                        </h5>
-                        <p>Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</p>
-                    </div>
-                </article>
-            </div>
+                    </article>
+                </div>
+            }
+
         </div>
     </div>
 </section>
+
+                                <style>
+
+    .blog-img {
+        width: 100%;
+        height: 750px; /* hepsi aynı yükseklik */
+        object-fit: cover; /* kırpar ama bozulmaz */
+        border-radius: 12px;
+    }
+    .post-image {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.post-image img {
+    transition: transform .4s ease;
+}
+
+.post-image:hover img {
+    transform: scale(1.05);
+}
+
+                                </style>

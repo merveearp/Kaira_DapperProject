@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Kaira.WebUI.Repositories.CategoryRepositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Kaira.WebUI.ViewComponents.WebUIHome
 {
-    public class _UICategoriesComponent :ViewComponent
+    public class _UICategoriesComponent(ICategoryRepository _categoryRepository) :ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var value = await _categoryRepository.GetAllAsync();
+            return View(value);
         }
     }
 }

@@ -39,6 +39,14 @@ namespace Kaira.WebUI.Repositories.BlogRepositories
             return await _db.QueryFirstOrDefaultAsync<UpdateBlogDto>(query, parameters);
         }
 
+        public async Task<ResultBlogDto> GetDetailAsync(int id)
+        {
+            var query = "Select * from Blogs where BlogId=@BlogId";
+            var parameters = new DynamicParameters();
+            parameters.Add("BlogId", id);
+            return await _db.QueryFirstOrDefaultAsync<ResultBlogDto>(query, parameters);
+        }
+
         public async Task UpdateAsync(UpdateBlogDto updateDto)
         {
             var query = "Update Blogs set Title=@Title,CoverImage=@CoverImage,Description=@Description,Subtitle=@Subtitle ,UpdatedDate=@UpdatedDate where BlogId=@BlogId";

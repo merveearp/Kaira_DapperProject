@@ -1,0 +1,77 @@
+﻿@model CreateCoverImageDto
+@{
+    ViewData["Title"] = "CreateCoverImage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mb-4">
+    <h4 class="fw-bold">Yeni Kapak Görseli Ekle</h4>
+    <p class="text-muted mb-0">
+        Sisteme yeni bir kapak görseli ekleyebilirsiniz
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+
+        <form method="post">
+
+            <div class="update-layout">
+
+
+                <div class="update-form">
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Görsel Yolu
+                        </label>
+                        <input asp-for="CoverImage"
+                               id="coverImageInput"
+                               class="form-control"
+                               placeholder="/images/instagram/cover1.jpg" />
+                        <small class="text-muted">
+                            Örn: /images/instagram/cover2.jpg
+                        </small>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/Admin/CoverImage/Index"
+                           class="btn btn-light-danger">
+                            İptal
+                        </a>
+                        <button type="submit"
+                                class="btn btn-light-primary">
+                            Kaydet
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="update-preview">
+                    <div class="image-preview-box">
+                        <img id="coverImagePreview"
+                             src="/images/no-image.png"
+                             alt="Cover Image Preview" />
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("coverImageInput");
+    const preview = document.getElementById("coverImagePreview");
+
+    input.addEventListener("input", function () {
+        preview.src = this.value;
+    });
+
+    preview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

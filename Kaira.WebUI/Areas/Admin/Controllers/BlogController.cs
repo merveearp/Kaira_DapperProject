@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kaira.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class BlogController(IBlogRepository _blogRepository) : Controller
     {
         public async Task<IActionResult> Index()

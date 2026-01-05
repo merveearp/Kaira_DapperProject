@@ -29,8 +29,8 @@
                 <p class="collection-description">
                     @(string.IsNullOrEmpty(item.Description)
                                     ? ""
-                                    : item.Description.Length > 80
-                                    ? item.Description.Substring(0, 80) + "..."
+                                    : item.Description.Length > 150
+                                    ? item.Description.Substring(0, 150) + "..."
                                     : item.Description)
 
                 </p>
@@ -53,5 +53,3 @@
     }
 
 </div>
-
-

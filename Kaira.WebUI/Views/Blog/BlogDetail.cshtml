@@ -1,0 +1,74 @@
+﻿@model ResultBlogDto
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="kaira-blog-detail py-5">
+    <div class="container">
+
+
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+            <a href="javascript:history.back()" class="back-btn">
+                ← Geri Dön
+            </a>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="home-btn">
+                Anasayfaya Dön
+            </a>
+        </div>
+
+
+        <div class="row align-items-start gy-5">
+
+
+            <div class="col-lg-6">
+                <div class="blog-detail-image">
+                    <img src="@Model.CoverImage"
+                         alt="@Model.Title"
+                         class="img-fluid">
+                </div>
+            </div>
+
+           
+            <div class="col-lg-6">
+
+                <span class="detail-category">
+                    @Model.Subtitle
+                </span>
+
+                <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+                    <h1 class="detail-title mb-0">
+                        @Model.Title
+                    </h1>
+
+                    <span class="detail-date">
+                        @Model.CreatedDate.ToString("dd MMM yyyy")
+                    </span>
+                </div>
+
+                <div class="blog-detail-content">
+                    @Html.Raw(Model.Description)
+                </div>
+
+            </div>
+        </div>
+
+       
+        <div class="d-flex justify-content-between align-items-center mt-5 flex-wrap gap-3">
+            <a href="javascript:history.back()" class="back-btn">
+                ← Geri Dön
+            </a>
+
+            <a asp-controller="Blog"
+               asp-action="Index"
+               class="home-btn">
+                Tüm Bloglara Dön
+            </a>
+        </div>
+
+    </div>
+</section>

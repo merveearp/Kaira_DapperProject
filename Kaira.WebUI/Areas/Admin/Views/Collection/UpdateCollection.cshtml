@@ -1,0 +1,97 @@
+﻿@model UpdateCollectionDto
+@{
+    ViewData["Title"] = "UpdateCollection";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="mb-4">
+    <h3 class="fw-bold">Koleksiyon Güncelle</h3>
+    <p class="text-muted mb-0">
+        Koleksiyon bilgilerini güncelleyebilirsiniz
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm collection-form-card">
+    <div class="card-body p-4">
+
+        <form method="post">
+            <input type="hidden" asp-for="CollectionId" />
+
+           
+            <div class="update-layout">
+
+              
+                <div class="update-form">
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Koleksiyon Adı
+                        </label>
+                        <input asp-for="Title"
+                               class="form-control form-control-lg"
+                               placeholder="Örn: Winter Collection" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Açıklama
+                        </label>
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  rows="4"
+                                  placeholder="Koleksiyon hakkında kısa açıklama">
+                        </textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Görsel Yolu
+                        </label>
+                        <input asp-for="ImageUrl"
+                               id="imageUrlInput"
+                               class="form-control"
+                               placeholder="/images/collections/winter.jpg" />
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/Admin/Collection/Index"
+                           class="btn btn-light-danger">
+                            İptal
+                        </a>
+                        <button type="submit"
+                                class="btn btn-light-primary">
+                            Güncelle
+                        </button>
+                    </div>
+
+                </div>
+
+               
+                <div class="update-preview">
+                    <div class="image-preview-box">
+                        <img id="imagePreview"
+                             src="@Model.ImageUrl"
+                             alt="Collection Image" />
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("imageUrlInput");
+    const preview = document.getElementById("imagePreview");
+
+    input.addEventListener("input", function () {
+        preview.src = this.value;
+    });
+
+    preview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

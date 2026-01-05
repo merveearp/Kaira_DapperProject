@@ -1,0 +1,113 @@
+﻿
+@model UpdateContactDto
+
+@{
+    ViewData["Title"] = "İletişim Bilgileri";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-heading mb-4">
+    <h3 class="fw-bold">İletişim Bilgileri</h3>
+    <p class="text-muted mb-0">
+        Web sitesinde görünen iletişim bilgilerini yönetin
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-xl-9 col-lg-10 col-md-12">
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+
+              
+                <div class="mb-4 d-flex align-items-start gap-3">
+                    <div class="icon-box bg-light text-primary">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <label class="form-label fw-semibold">Adres</label>
+                        <input type="text"
+                               class="form-control"
+                               value="@Model.Address"
+                               readonly />
+                    </div>
+                </div>
+
+              
+                <div class="mb-4 d-flex align-items-start gap-3">
+                    <div class="icon-box bg-light text-success">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <label class="form-label fw-semibold">Telefon</label>
+                        <input type="text"
+                               class="form-control"
+                               value="@Model.PhoneNumber"
+                               readonly />
+                    </div>
+                </div>
+
+               
+                <div class="mb-4 d-flex align-items-start gap-3">
+                    <div class="icon-box bg-light text-danger">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <label class="form-label fw-semibold">E-Posta</label>
+                        <input type="email"
+                               class="form-control"
+                               value="@Model.Email"
+                               readonly />
+                    </div>
+                </div>
+
+               
+                <div class="mb-4 d-flex align-items-start gap-3">
+                    <div class="icon-box bg-light text-warning">
+                        <i class="bi bi-info-circle-fill"></i>
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <label class="form-label fw-semibold">Bilgi</label>
+                        <textarea rows="3"
+                                  class="form-control"
+                                  readonly>@Model.Info</textarea>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+              
+                <div class="d-flex justify-content-end">
+                    <a asp-area="Admin"
+                       asp-controller="Contact"
+                       asp-action="UpdateContact"
+                       class="btn btn-warning px-4">
+                        <i class="bi bi-pencil-square me-1"></i>
+                        Düzenle
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .icon-box {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+</style>
+
+

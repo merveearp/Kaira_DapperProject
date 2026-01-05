@@ -7420,6 +7420,7 @@ table.dataTable thead tr >.dtfc-fixed-start:is([data-pc-theme="dark"] *),table.d
           text-decoration-line: line-through;
 }
 
+
 /*benim eklediğim alan*/
 
 
@@ -7508,7 +7509,12 @@ table.dataTable thead tr >.dtfc-fixed-start:is([data-pc-theme="dark"] *),table.d
         max-height: 100%;
         object-fit: contain;
     }
+    /*COLLECTİON*/
 
+
+/* =========================
+       COLLECTION INDEX (GRID)
+       ========================= */
 
 .collection-grid {
     display: grid;
@@ -7550,3 +7556,316 @@ table.dataTable thead tr >.dtfc-fixed-start:is([data-pc-theme="dark"] *),table.d
     line-height: 1.4;
     min-height: 40px;
 }
+/* =========================
+       COLLECTION UPDATE (CATEGORY CLONE)
+       ========================= */
+
+.collection-form-card {
+    border-radius: 16px;
+}
+
+/* 🔥 Bootstrap’i bypass eden layout */
+.update-layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* SOL FORM */
+.update-form {
+    flex: 1;
+}
+
+/* SAĞ PREVIEW */
+.update-preview {
+    width: 340px; /* SABİT */
+    flex-shrink: 0; /* ASLA ALTA DÜŞMEZ */
+}
+
+/* PREVIEW KUTUSU */
+.image-preview-box {
+    width: 100%;
+    height: 260px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 14px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .image-preview-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+/* MOBİL */
+@media (max-width: 992px) {
+    .update-layout {
+        flex-direction: column;
+    }
+
+    .update-preview {
+        width: 100%;
+    }
+}
+
+/* =========================
+   BLOG INDEX GRID
+   ========================= */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.blog-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+    .blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 36px rgba(0,0,0,0.14);
+    }
+
+.blog-image-wrapper {
+    height: 220px;
+    background-color: #f4f6f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-body {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-description {
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.5;
+    margin-top: 8px;
+    flex: 1;
+}
+
+.blog-dates {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+.blog-image-preview {
+    width: 100%;
+    height: 240px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 14px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .blog-image-preview img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+/* FORM CARD */
+.blog-form-card {
+    border-radius: 16px;
+}
+
+/* FLEX UPDATE LAYOUT */
+.update-layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* SOL */
+.update-form {
+    flex: 1;
+}
+
+/* SAĞ */
+.update-preview {
+    width: 340px;
+    flex-shrink: 0;
+}
+
+/* PREVIEW BOX */
+.image-preview-box {
+    width: 100%;
+    height: 260px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 14px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .image-preview-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+/* MOBİL */
+@media (max-width: 992px) {
+    .update-layout {
+        flex-direction: column;
+    }
+
+    .update-preview {
+        width: 100%;
+    }
+}
+
+/* =========================
+   COVER IMAGE INDEX
+   ========================= */
+
+.coverimage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.coverimage-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+    .coverimage-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+    }
+
+.coverimage-image-box {
+    width: 100%;
+    height: 260px; /* 🔥 ORTALAMA EBAT */
+    background-color: #f5f6f8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .coverimage-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 🔥 KIRPMA YOK */
+    }
+
+.coverimage-actions {
+    margin-top: 14px;
+}
+
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.logo-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+    .logo-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+    }
+
+.logo-image-box {
+    width: 100%;
+    height: 260px; /* 🔥 ORTALAMA EBAT */
+    background-color: #f5f6f8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .logo-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 🔥 KIRPMA YOK */
+    }
+
+.logo-actions {
+    margin-top: 14px;
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 26px 20px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+
+.service-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    background: #f4f6f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .service-icon i {
+        font-size: 28px;
+        color: #111;
+    }
+
+.service-icon-preview {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background: #f4f6f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .service-icon-preview i {
+        font-size: 28px;
+        color: #111;
+    }

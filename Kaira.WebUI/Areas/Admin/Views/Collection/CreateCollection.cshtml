@@ -1,0 +1,100 @@
+﻿@model CreateCollectionDto
+@{
+    ViewData["Title"] = "CreateCollection";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-9">
+
+        <div class="mb-4">
+            <h3 class="fw-bold">Yeni Koleksiyon Ekle</h3>
+            <p class="text-muted mb-0">
+                <small class="text-primary">
+                    Koleksiyon bilgilerini girerek yeni bir koleksiyon oluşturun
+                </small>
+            </p>
+        </div>
+
+        <div class="card border-0 shadow-sm collection-form-card">
+            <div class="card-body p-4">
+
+                <form method="post">
+
+                   
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Koleksiyon Adı
+                        </label>
+                        <input asp-for="Title"
+                               class="form-control form-control-lg"
+                               placeholder="Örn: Winter Collection" />
+                    </div>
+
+                  
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Açıklama
+                        </label>
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  rows="3"
+                                  placeholder="Koleksiyon hakkında kısa açıklama">
+                        </textarea>
+                    </div>
+
+                  
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Görsel Yolu
+                        </label>
+                        <input asp-for="ImageUrl"
+                               id="collectionImageInput"
+                               class="form-control"
+                               placeholder="/images/collections/winter.jpg" />
+                        <small class="text-muted">
+                            Örn: /images/collections/summer.jpg
+                        </small>
+                    </div>
+
+                   
+                    <div class="mb-4">
+                        <div class="collection-image-preview">
+                            <img id="collectionImagePreview"
+                                 src="/images/no-image.png"
+                                 alt="Image Preview" />
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 pt-2">
+                        <a href="/Admin/Collection/Index"
+                           class="btn btn-light-danger px-4">
+                            İptal
+                        </a>
+                        <button type="submit"
+                                class="btn btn-light-primary px-4">
+                            Kaydet
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    const imageInput = document.getElementById("collectionImageInput");
+    const imagePreview = document.getElementById("collectionImagePreview");
+
+    imageInput.addEventListener("input", function () {
+        imagePreview.src = this.value;
+    });
+
+    imagePreview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

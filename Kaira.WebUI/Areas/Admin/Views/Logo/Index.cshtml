@@ -1,0 +1,45 @@
+﻿@model List<ResultLogoDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold mb-0">Kapak Logoları</h2>
+    <br />
+
+    <a href="/Admin/Logo/CreateLogo"
+       class="btn btn-sm btn-dark">
+        Yeni Logo Ekle
+    </a>
+</div>
+
+<div class="logo-grid">
+
+    @foreach (var item in Model)
+    {
+        <div class="logo-card">
+
+            <div class="Logo-image-box">
+                <img src="@Url.Content(item.ImageUrl)"
+                     alt="Cover Image" />
+            </div>
+
+            <div class="logo-actions d-flex justify-content-center gap-2">
+                <a href="/Admin/Logo/UpdateLogo/@item.LogoId"
+                   class="btn btn-sm btn-light-primary">
+                    Düzenle
+                </a>
+
+                <a href="/Admin/Logo/DeleteLogo/@item.LogoId"
+                   class="btn btn-sm btn-outline-danger"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                    Sil
+                </a>
+            </div>
+
+        </div>
+    }
+
+</div>

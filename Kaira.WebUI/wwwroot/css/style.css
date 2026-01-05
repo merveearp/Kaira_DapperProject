@@ -1,4 +1,4 @@
-/*
+﻿/*
 Theme Name: Kaira - Bootstrap 5 Fashion Store HTML CSS Template
 Theme URI: https://templatejungle.com/
 Author: TemplatesJungle
@@ -1541,7 +1541,7 @@ a.btn-link.text-light:after {
   transition: transform .3s ease-out;
 }
 
-/*BEN�M EKLED���M CSS YOLLARI */
+/*BENİM EKLEDİĞİM CSS YOLLARI */
 
 /* ===== KAIRA HERO VIDEO ===== */
 
@@ -1616,3 +1616,371 @@ a.btn-link.text-light:after {
         .kaira-hero-content a:hover {
             opacity: .6;
         }
+
+
+
+/* KAIRA BLOG INDEX */
+
+.kaira-blog-index {
+    background-color: #f7f4ef;
+}
+
+.blog-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #3b2f2f;
+    margin-bottom: 10px;
+}
+
+.blog-subtitle {
+    color: #7a6f66;
+    font-size: 1rem;
+}
+
+.blog-card {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all .4s ease;
+    height: 100%;
+}
+
+    .blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+
+.blog-image {
+    height: 750px;
+    overflow: hidden;
+}
+
+    .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s ease;
+    }
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.08);
+}
+
+.blog-content {
+    padding: 24px;
+}
+
+.blog-category {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a1866f;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.blog-card-title a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2f2623;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+    .blog-card-title a:hover {
+        color: #8b6f4e;
+    }
+
+.blog-description {
+    font-size: .95rem;
+    color: #6e6259;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.read-more {
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8b6f4e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+/* Back to Home Button */
+
+.back-home-btn {
+    font-size: .85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6f4e37; /* kahve tonu */
+    border: 1px solid #c7b299; /* açık bej */
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all .3s ease;
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+    .back-home-btn:hover {
+        background-color: #6f4e37;
+        color: #ffffff;
+        border-color: #6f4e37;
+    }
+/* BLOG DETAIL – KAIRA STYLE */
+
+.kaira-blog-detail {
+    background-color: #f7f4ef;
+}
+
+.back-btn,
+.home-btn {
+    font-size: .8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all .3s ease;
+    white-space: nowrap;
+}
+
+/* Back Button */
+.back-btn {
+    color: #6f4e37;
+    border: 1px solid #c7b299;
+}
+
+    .back-btn:hover {
+        background-color: #6f4e37;
+        color: #fff;
+        border-color: #6f4e37;
+    }
+
+/* Home Button */
+.home-btn {
+    color: #ffffff;
+    background-color: #8b6f4e;
+    border: 1px solid #8b6f4e;
+}
+
+    .home-btn:hover {
+        background-color: #6f4e37;
+        border-color: #6f4e37;
+    }
+
+/* HEADER */
+/* BLOG DETAIL – SPLIT LAYOUT */
+
+.blog-detail-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.detail-category {
+    font-size: .75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a1866f;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.detail-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2f2623;
+    line-height: 1.3;
+}
+
+.detail-date {
+    font-size: .8rem;
+    color: #8b6f4e;
+    border-left: 1px solid #d6c6b8;
+    padding-left: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-detail-content {
+    margin-top: 24px;
+    font-size: 1rem;
+    color: #4a3f39;
+    line-height: 1.9;
+}
+
+    .blog-detail-content p {
+        margin-bottom: 22px;
+    }
+
+/* FEATURES HOVER – KAIRA STYLE */
+
+.feature-item {
+    border-radius: 16px;
+    transition: all .35s ease;
+    cursor: pointer;
+}
+
+    .feature-item:hover {
+        background-color: #f7f4ef; /* kahve-bej zemin */
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+
+/* ICON EFFECT */
+.feature-icon {
+    color: #2f2623;
+    transition: all .35s ease;
+}
+
+.feature-item:hover .feature-icon {
+    color: #8b6f4e; /* kahve tonu */
+    transform: scale(1.15);
+}
+
+/* TITLE EFFECT */
+.feature-item h4 {
+    transition: color .3s ease;
+}
+
+.feature-item:hover h4 {
+    color: #6f4e37;
+}
+/* COLLECTION IMAGE ONLY */
+
+/* ===============================
+   COLLECTION IMAGE AREA (ISOLATED)
+   =============================== */
+
+.collection-media {
+    width: 100%;
+    height: 500px; /* görsel alan sabit */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-image {
+    max-width: 100%; /* görsel boyutu */
+    max-height: 100%;
+    object-fit: contain; /* kırpma yok */
+}
+/* ===============================
+   LOGO BAR
+   =============================== */
+
+.logo-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* yan yana */
+    gap: 40px;
+    flex-wrap: wrap; /* küçük ekranlarda alt satıra geçsin */
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    max-height: 60px; /* 🔥 logo boyutu */
+    width: auto;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+    .logo-image:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .logo-content {
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .logo-image {
+        max-height: 48px;
+    }
+}
+/* ===============================
+   INSTAGRAM SECTION – KAIRA
+   =============================== */
+
+.instagram-section {
+    background-color: #f7f4ef; /* nude / bej */
+}
+
+.instagram-title {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: #2f2623;
+    margin-bottom: 8px;
+}
+
+.instagram-subtitle {
+    font-size: .9rem;
+    color: #7a6f66;
+}
+
+/* GRID */
+.instagram-grid {
+    overflow: hidden;
+}
+
+/* ITEM */
+.insta-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.insta-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform .6s ease, filter .4s ease;
+}
+
+/* HOVER EFFECT */
+.insta-item::after {
+    content: "Instagram";
+    position: absolute;
+    inset: 0;
+    background: rgba(47, 38, 35, 0.45);
+    color: #fff;
+    font-size: .85rem;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.insta-item:hover::after {
+    opacity: 1;
+}
+
+.insta-item:hover .insta-image {
+    transform: scale(1.08);
+    filter: brightness(.9);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .insta-image {
+        height: 160px;
+    }
+}

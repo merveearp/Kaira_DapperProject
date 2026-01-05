@@ -1,0 +1,56 @@
+﻿@model CreateTestimonialDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="mb-5">
+    <h3 class="fw-bold mb-2">Yeni Referans Ekle</h3>
+    <p class="text-muted mb-0">
+        Referans bilgisi ekleyin
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+
+        <form method="post">
+
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    Referans
+                </label>
+                <input asp-for="NameSurname"
+                       class="form-control form-control-lg"
+                       placeholder="Örn: isim soyisim ?" />
+            </div>
+
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">
+                    Yorum 
+                </label>
+                <textarea asp-for="Comment"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Yapılan yorum ">
+                </textarea>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 pt-2">
+                <a href="/Admin/Testimonial/Index"
+                   class="btn btn-light-danger px-4">
+                    İptal
+                </a>
+                <button type="submit"
+                        class="btn btn-light-primary px-4">
+                    Kaydet
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

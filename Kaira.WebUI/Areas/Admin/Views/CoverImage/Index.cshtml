@@ -1,0 +1,46 @@
+﻿
+
+@model List<ResultCoverImageDto>
+@{
+    ViewData["Title"] = "Cover Images";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold mb-0">Kapak Görselleri</h2>
+    <br />
+
+    <a href="/Admin/CoverImage/CreateCoverImage"
+       class="btn btn-sm btn-dark">
+        Yeni Görsel Ekle
+    </a>
+</div>
+
+<div class="coverimage-grid">
+
+    @foreach (var item in Model)
+    {
+        <div class="coverimage-card">
+
+            <div class="coverimage-image-box">
+                <img src="@Url.Content(item.CoverImage)"
+                     alt="Cover Image" />
+            </div>
+
+            <div class="coverimage-actions d-flex justify-content-center gap-2">
+                <a href="/Admin/CoverImage/UpdateCoverImage/@item.CoverId"
+                   class="btn btn-sm btn-light-primary">
+                    Düzenle
+                </a>
+
+                <a href="/Admin/CoverImage/DeleteCoverImage/@item.CoverId"
+                   class="btn btn-sm btn-outline-danger"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?')">
+                    Sil
+                </a>
+            </div>
+
+        </div>
+    }
+
+</div>

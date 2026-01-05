@@ -31,7 +31,7 @@ namespace Kaira.WebUI.Repositories.FAQRepositories
 
         public async Task<UpdateFAQDto> GetByIdAsync(int id)
         {
-            var query = "Select * from FAQ where FAQId=@FAQId";
+            var query = "Select * from FAQs where FAQId=@FAQId";
             var parameters = new DynamicParameters();
             parameters.Add("FAQId", id);
             return await _db.QueryFirstOrDefaultAsync<UpdateFAQDto>(query, parameters);

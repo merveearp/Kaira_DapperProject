@@ -1,0 +1,105 @@
+﻿@model UpdateBlogDto
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mb-4">
+    <h3 class="fw-bold">Blog Güncelle</h3>
+    <p class="text-muted mb-0">
+        Blog içeriğini güncelleyebilirsiniz
+    </p>
+</div>
+
+<div class="card border-0 shadow-sm blog-form-card">
+    <div class="card-body p-4">
+
+        <form method="post">
+            <input type="hidden" asp-for="BlogId" />
+
+            <!-- 🔥 CATEGORY / COLLECTION İLE AYNI FLEX LAYOUT -->
+            <div class="update-layout">
+
+                <!-- SOL -->
+                <div class="update-form">
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Başlık
+                        </label>
+                        <input asp-for="Title"
+                               class="form-control form-control-lg"
+                               placeholder="Örn: Yeni Sezon Trendleri" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Alt Başlık
+                        </label>
+                        <input asp-for="Subtitle"
+                               class="form-control"
+                               placeholder="Kısa açıklama" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            İçerik
+                        </label>
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  rows="5"
+                                  placeholder="Blog içeriği">
+                        </textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Kapak Görseli (URL)
+                        </label>
+                        <input asp-for="CoverImage"
+                               id="imageUrlInput"
+                               class="form-control"
+                               placeholder="/images/blogs/cover.jpg" />
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/Admin/Blog/Index"
+                           class="btn btn-light-danger">
+                            İptal
+                        </a>
+                        <button type="submit"
+                                class="btn btn-light-primary">
+                            Güncelle
+                        </button>
+                    </div>
+
+                </div>
+
+ 
+                <div class="update-preview">
+                    <div class="image-preview-box">
+                        <img id="imagePreview"
+                             src="@Model.CoverImage"
+                             alt="Blog Image" />
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById("imageUrlInput");
+    const preview = document.getElementById("imagePreview");
+
+    input.addEventListener("input", function () {
+        preview.src = this.value;
+    });
+
+    preview.onerror = function () {
+        this.src = "/images/no-image.png";
+    };
+</script>

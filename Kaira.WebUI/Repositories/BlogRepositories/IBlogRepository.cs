@@ -6,6 +6,7 @@ namespace Kaira.WebUI.Repositories.BlogRepositories
     {
         Task<IEnumerable<ResultBlogDto>> GetAllAsync();
         Task<UpdateBlogDto> GetByIdAsync(int id);
+        Task<ResultBlogDto> GetDetailAsync(int id);
         Task CreateAsync(CreateBlogDto createDto);
         Task UpdateAsync(UpdateBlogDto updateDto);
         Task DeleteAsync(int id);

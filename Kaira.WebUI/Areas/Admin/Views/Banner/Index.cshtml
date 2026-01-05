@@ -1,0 +1,51 @@
+﻿@model UpdateBannerDto
+
+@{
+    ViewData["Title"] = "Ana Vitrin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-heading mb-4">
+    <h2 class="fw-bold">Vitrin</h2>
+    <p class="text-muted mb-0">
+        Web sitesinde ana vitrinde görünen içeriğini yönetin
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-9 col-md-11">
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+
+
+                <div class="mb-3">
+                    <span class="badge bg-light text-primary mb-2">
+                        KAIRA COLLECTION
+                    </span>
+                    <h4 class="fw-bold mb-2">
+                        @Model.Title
+                    </h4>
+                </div>
+
+
+                <p class="text-muted" style="line-height: 1.8;">
+                    @Model.Description
+                </p>
+
+                <hr class="my-4" />
+
+
+                <div class="d-flex justify-content-end">
+                    <a href="/Admin/Banner/UpdateBanner"
+                       class="btn btn-light-warning px-4">
+                        Düzenle
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
