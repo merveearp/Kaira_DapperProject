@@ -7,9 +7,11 @@ using Kaira.WebUI.Repositories.ContactRepositories;
 using Kaira.WebUI.Repositories.CoverImageRepositories;
 using Kaira.WebUI.Repositories.FAQRepositories;
 using Kaira.WebUI.Repositories.LogoRepositories;
+using Kaira.WebUI.Repositories.ProductRepositories;
 using Kaira.WebUI.Repositories.ServiceRepositories;
 using Kaira.WebUI.Repositories.TestimonialRepositories;
 using Kaira.WebUI.Repositories.VideoRepositories;
+using Kaira.WebUI.Repositories.WearRepositories;
 
 namespace Kaira.WebUI.Extensions
 {
@@ -29,6 +31,8 @@ namespace Kaira.WebUI.Extensions
             services.AddScoped<ITestimonialRepository , TestimonialRepository>();
             services.AddScoped<IBannerRepository , BannerRepository>();
             services.AddScoped<ILogoRepository , LogoRepository>();
+            services.AddScoped<IProductRepository , ProductRepository>();
+            services.AddScoped<IWearRepository , WearRepository>();
         }
     }
 }

@@ -1,0 +1,77 @@
+﻿@model List<ResultWearDto>
+
+@{
+    ViewData["Title"] = "Kategoriler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var groupedCategories = Model
+        .GroupBy(x => new { x.CategoryName, x.CategoryImage })
+        .ToList();
+}
+
+<section class="kaira-category-section py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="kaira-back-wrapper mb-3">
+                <button type="button"
+                        class="kaira-back-btn"
+                        onclick="history.back()">
+                    ← Geri Dön
+                </button>
+            </div>
+
+            @foreach (var category in groupedCategories)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="kaira-category-card shadow-sm h-100">
+                 
+                        <!-- Category Image -->
+                        <div class="kaira-category-image-wrapper">
+                            <img src="@category.Key.CategoryImage"
+                                 alt="@category.Key.CategoryName"
+                                 class="img-fluid kaira-category-image" />
+                        </div>
+
+                        <!-- Category Content -->
+                        <div class="kaira-category-content p-4">
+
+                            <h4 class="kaira-category-title mb-3">
+                                @category.Key.CategoryName
+                            </h4>
+                           
+
+                            <ul class="kaira-wear-list list-unstyled mb-0">
+
+                                @foreach (var wear in category)
+                                {
+                                    <li class="kaira-wear-item">
+
+                                        <a asp-controller="Product"
+                                           asp-action="GetWearByProduct"
+                                           asp-route-id="@wear.WearId"
+                                           class="kaira-wear-link text-decoration-none text-dark">
+
+                                            <strong class="kaira-wear-title">
+                                                @wear.Title
+                                            </strong>
+
+                                            <span class="kaira-wear-subtitle d-block text-muted">
+                                                @wear.Subtitle
+                                            </span>
+
+                                        </a>
+
+                                    </li>
+                                }
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

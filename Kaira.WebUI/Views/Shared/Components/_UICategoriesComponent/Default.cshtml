@@ -2,31 +2,55 @@
 @*
     _UICategoriesComponent
 *@
-<section class="categories overflow-hidden">
+
+<section class="categories overflow-hidden py-5">
     <div class="container">
+
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-uppercase fw-bold mb-0">Kategoriler</h3>
+
+            <a asp-controller="Wear"
+               asp-action="GetAllCategoryIndex"
+               class="btn btn-outline-dark text-uppercase">
+                Tümünü Gör
+            </a>
+        </div>
+
         <div class="open-up" data-aos="zoom-out">
             <div class="row">
-                @foreach(var item in Model)
+
+                @foreach (var item in Model)
                 {
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <div class="cat-item image-zoom-effect">
+
                             <div class="image-holder">
-                                <a href="index.html">
-                                    <img src="@item.ImageUrl" alt="categories" class="product-image img-fluid">
+                                <a asp-controller="Wear"
+                                   asp-action="GetCategoryIdWear"
+                                   asp-route-id="@item.CategoryId">
+                                    <img src="@item.ImageUrl"
+                                         alt="@item.Name"
+                                         class="product-image img-fluid">
                                 </a>
                             </div>
-                            <div class="category-content">
+
+                            <div class="category-content text-center mt-3">
                                 <div class="product-button">
-                                    <a asp-controller="Wear" class="btn btn-common text-uppercase">@item.Name</a>
+                                    <a asp-controller="Wear"
+                                       asp-action="GetCategoryIdWear"
+                                       asp-route-id="@item.CategoryId"
+                                       class="btn btn-common text-uppercase">
+                                        @item.Name
+                                    </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 }
-               
+
             </div>
         </div>
     </div>
 </section>
-
-                       @*BUraya category ıd ye göre listelem yazıcaz wear için repository yazıcaz yani  *@

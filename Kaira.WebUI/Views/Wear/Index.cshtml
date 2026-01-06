@@ -1,0 +1,88 @@
+﻿@model List<ResultWearDto>
+@{
+    ViewData["Title"] = "Koleksiyonlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wear-index py-5">
+    <div class="container">
+
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4 text-start">
+                <a href="javascript:history.back()" class="nav-back-link">
+                    ← Geri Dön
+                </a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="text-uppercase fw-semibold mb-1">Koleksiyonlar</h2>
+                <p class="text-muted mb-0">
+                    Stilini yansıtan koleksiyonları keşfet
+                </p>
+            </div>
+
+            <div class="col-md-4 text-end">
+                <a href="/" class="nav-home-link">
+                    Anasayfaya Dön
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="wear-card h-100">
+
+                       
+                        <div class="wear-image">
+                            <a href="/Product/GetWearByProduct/@item.WearId">
+                                <img src="@item.ImageUrl"
+                                     alt="@item.Title"
+                                     class="wear-img">
+                            </a>
+                        </div>
+
+                       
+                        <div class="wear-content text-center">
+
+                            <a asp-controller="Wear"
+                               asp-action="GetCategoryIdWear"
+                               asp-route-id="@item.CategoryId"
+                               class="wear-category-btn">
+                                @item.CategoryName
+                            </a>
+
+                           
+                            <h5 class="wear-title text-uppercase mt-3 mb-1">
+                                @item.Title
+                            </h5>
+
+                           
+                            <span class="wear-subtitle">
+                                @item.Subtitle
+                            </span>
+
+                           
+                            <p class="text-muted small mt-3 mb-4">
+                                @item.Description
+                            </p>
+
+                          
+                            <a href="/Product/GetWearByProduct/@item.WearId"
+                               class="wear-link">
+                                Keşfet
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

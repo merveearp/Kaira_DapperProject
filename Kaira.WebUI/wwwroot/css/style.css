@@ -1984,3 +1984,475 @@ a.btn-link.text-light:after {
         height: 160px;
     }
 }
+.banner-item .image-holder {
+    width: 100%;
+    height: 420px; /* atkıdaki denge */
+    overflow: hidden;
+}
+
+    .banner-item .image-holder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+/* NAV LINKS */
+
+.nav-back-link,
+.nav-home-link {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+
+    .nav-back-link::after,
+    .nav-home-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 1px;
+        background-color: #000;
+        transition: width 0.3s ease;
+    }
+
+    .nav-back-link:hover::after,
+    .nav-home-link:hover::after {
+        width: 100%;
+    }
+/* ===============================
+   WEAR INDEX – KAIRA STYLE
+   =============================== */
+
+.wear-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all .4s ease;
+}
+
+    .wear-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+
+/* IMAGE */
+.wear-image {
+    position: relative;
+    height: 380px; /* 🔥 tüm görseller aynı boy */
+    overflow: hidden;
+}
+
+.wear-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* kart için doğru */
+    transition: transform .6s ease;
+}
+
+.wear-card:hover .wear-img {
+    transform: scale(1.08);
+}
+
+/* CATEGORY BADGE */
+.wear-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(47,38,35,.85);
+    color: #fff;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+/* CONTENT */
+.wear-content {
+    padding: 28px 24px;
+}
+
+    .wear-content h5 {
+        letter-spacing: 1px;
+        color: #2f2623;
+    }
+
+/* CTA */
+.wear-link {
+    display: inline-block;
+    padding: 10px 26px;
+    border: 1px solid #2f2623;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: .75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2f2623;
+    transition: all .3s ease;
+}
+
+    .wear-link:hover {
+        background-color: #2f2623;
+        color: #fff;
+    }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .wear-image {
+        height: 300px;
+    }
+}
+.wear-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(47,38,35,.85);
+    color: #fff;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .3s ease;
+}
+
+    .wear-category:hover {
+        background: #2f2623;
+    }
+
+/* CATEGORY BUTTON */
+
+.wear-category-btn {
+    display: inline-block;
+    margin-bottom: 8px;
+    background: rgba(47,38,35,.85);
+    color: #fff;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    padding: 6px 18px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+    .wear-category-btn:hover {
+        background: #2f2623;
+        color: #fff;
+    }
+
+/* TITLE */
+
+.wear-title {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #2f2623;
+}
+
+/* SUBTITLE */
+
+.wear-subtitle {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #a1958b;
+}
+/*/* ===============================
+   CATEGORY WEAR PAGE – FIXED
+   =============================== */
+
+/* HERO */
+.category-hero {
+    position: relative;
+    height: 260px; /* çok uzundu, kısalttık */
+    overflow: hidden;
+}
+
+.category-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(47,38,35,.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.category-title {
+    color: #fff;
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* NAV BUTTONS */
+.category-nav {
+    display: flex;
+    gap: 14px;
+}
+
+.category-btn {
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+    .category-btn.light {
+        background: rgba(255,255,255,.85);
+        color: #2f2623;
+    }
+
+    .category-btn.dark {
+        background: #2f2623;
+        color: #fff;
+    }
+
+    .category-btn:hover {
+        transform: translateY(-2px);
+    }
+
+/* WEAR CARD */
+.wear-item-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all .35s ease;
+}
+
+    .wear-item-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+
+/* LINK */
+.wear-item-link {
+    text-decoration: none;
+    display: block;
+}
+
+/* TEXT */
+.wear-item-subtitle {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a1958b;
+    margin-bottom: 8px;
+}
+
+.wear-item-title {
+    font-size: 1rem;
+    color: #2f2623;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 1.9rem;
+    }
+
+    .category-nav {
+        flex-direction: column;
+    }
+}
+.product-card {
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+    .product-card:hover {
+        transform: translateY(-4px);
+    }
+
+.product-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.product-link {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid #000;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+    .product-link:hover {
+        background: #000;
+        color: #fff;
+    }
+
+.stock-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #f1f1f1;
+    color: #888;
+    font-size: 13px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 16px;
+}
+.wear-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 720px;
+}
+
+    .wear-list li {
+        border-bottom: 1px solid #eee;
+    }
+
+.wear-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+/* TITLE */
+.wear-title {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+    /* underline */
+    .wear-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 1px;
+        background: #000;
+        transition: width 0.3s ease;
+    }
+
+/* hover underline */
+.wear-link:hover .wear-title::after {
+    width: 100%;
+}
+
+/* SUBTITLE */
+.wear-subtitle {
+    color: #777;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* subtitle hover effect */
+.wear-link:hover .wear-subtitle {
+    color: #000;
+}
+
+.kaira-category-card {
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+    .kaira-category-card:hover {
+        transform: translateY(-6px);
+    }
+
+.kaira-category-image-wrapper {
+    height: 260px;
+    overflow: hidden;
+}
+
+.kaira-category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kaira-category-title {
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.kaira-wear-list {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.kaira-wear-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+    .kaira-wear-item:last-child {
+        border-bottom: none;
+    }
+
+.kaira-wear-title {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.kaira-wear-link {
+    display: block;
+    padding: 6px 0;
+    transition: all .2s ease;
+}
+
+    .kaira-wear-link:hover {
+        padding-left: 6px;
+        color: #000;
+    }
+
+        .kaira-wear-link:hover .kaira-wear-title {
+            text-decoration: underline;
+        }
+.kaira-back-wrapper {
+    text-align: left;
+}
+
+.kaira-back-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+}
+
+    .kaira-back-btn:hover {
+        text-decoration: underline;
+    }

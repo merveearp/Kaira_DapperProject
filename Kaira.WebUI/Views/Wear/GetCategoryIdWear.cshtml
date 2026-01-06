@@ -1,0 +1,65 @@
+﻿@model List<ResultWearDto>
+@{
+    ViewData["Title"] = "Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categoryName = Model.FirstOrDefault()?.CategoryName;
+    var categoryImage = Model.FirstOrDefault()?.CategoryImage;
+}
+
+<section class="category-wear-page">
+
+
+    <div class="category-hero">
+        <img src="@categoryImage"
+             alt="@categoryName"
+             class="category-hero-image">
+
+        <div class="category-hero-overlay">
+            <h1 class="category-title">
+                @categoryName
+            </h1>
+
+
+            <div class="category-nav">
+                <a href="javascript:history.back()" class="category-btn light">
+                    ← Geri Dön
+                </a>
+                <a href="/" class="category-btn dark">
+                    Anasayfaya Dön
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="wear-item-card">
+
+                        <a asp-controller="Product"
+                           asp-action="GetWearByProduct"
+                           asp-route-id="@item.WearId"
+                           class="wear-item-link">
+
+                            <span class="wear-item-subtitle">
+                                @item.Subtitle
+                            </span>
+
+                            <h5 class="wear-item-title">
+                                @item.Title
+                            </h5>
+
+                        </a>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>

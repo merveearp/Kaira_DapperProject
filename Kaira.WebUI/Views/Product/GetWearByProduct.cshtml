@@ -1,0 +1,69 @@
+﻿@model List<ResultProductDto>
+
+@{
+    ViewData["Title"] = "Ürünler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var wearTitle = Model.FirstOrDefault()?.WearTitle;
+    var wearSubtitle = Model.FirstOrDefault()?.WearSubtitle;
+}
+
+<section class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="javascript:history.back()" class="btn btn-outline-dark">
+            ← Geri Dön
+        </a>
+
+        <a href="/" class="btn btn-outline-dark">
+            Anasayfaya Dön
+        </a>
+    </div>
+
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-uppercase">@wearTitle</h1>
+        <p class="text-muted fs-5">@wearSubtitle</p>
+    </div>
+
+    <div class="row g-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card">
+
+
+                    <div class="product-image">
+                        <img src="@item.CoverImage" alt="product" />
+                    </div>
+
+
+                    <div class="product-content text-center">
+
+                        @if (!item.IsActive)
+                        {
+                            <span class="stock-badge">
+                                Bu ürün stokta bulunmamaktadır
+                            </span>
+                        }
+                        else
+                        {
+                            <a href="/Product/ProductDetail/@item.ProductId"
+                               class="product-link">
+                                Ürünü İncele
+                            </a>
+                        }
+
+                        <div class="price mt-2">
+                            @item.Price ₺
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+</section>
