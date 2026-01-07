@@ -1,0 +1,34 @@
+﻿@model List<ResultBlogDto>
+
+<div class="blog-grid">
+
+    @foreach (var item in Model)
+    {
+        <div class="blog-card">
+
+            <div class="blog-image-wrapper">
+                <img src="@Url.Content(item.CoverImage)"
+                     alt="@item.Title"
+                     class="blog-image" />
+            </div>
+
+            <div class="blog-body">
+
+                <a asp-area="Admin"
+                   asp-controller="Blog"
+                   asp-action="UpdateBlog"
+                   asp-route-id="@item.BlogId">
+                    @item.Title
+                </a>
+                <small class="text-muted d-block mb-2">
+                    @item.Subtitle
+                </small>
+                <span class="badge bg-theme-bg-1 text-white text-[10px]">
+                    Yeni
+                </span>
+            </div>
+
+        </div>
+    }
+
+</div>

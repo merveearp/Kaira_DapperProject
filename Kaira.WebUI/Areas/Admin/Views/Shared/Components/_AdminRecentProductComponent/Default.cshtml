@@ -1,44 +1,66 @@
-﻿@model List<ResultProductDto>
-@*
-    _AdminHomeRecentProductComponent
-*@
+﻿<div class="col-span-12 xl:col-span-6 md:col-span-12">
+   
+    <div class="card table-card shadow-sm rounded-4 border-0">
 
-<div class="col-span-12 xl:col-span-8 md:col-span-6">
-    <div class="card table-card">
-        <div class="card-header">
-            <h5>Son Eklenen Ürünler</h5>
+        <div class="card-header d-flex justify-content-between align-items-center bg-white border-0 pb-2">
+            <h5 class="fw-semibold mb-0">🆕 Son Eklenen Ürünler</h5>
         </div>
-        <div class="card-body">
+
+        <div class="card-body pt-2">
             <div class="table-responsive">
-                <table class="table table-hover">
-                   
+                <table class="table table-hover align-middle mb-0">
                     <tbody>
                         @foreach (var item in Model)
                         {
+                            <tr>
+                               
+                                <td class="text-center">
+                                    <img src="@item.CoverImage"
+                                         class="rounded-3 shadow-sm"
+                                         style="width:50px;height:50px;object-fit:cover;"
+                                         alt="product" />
+                                </td>
 
-                            <tr class="unread">
+                               
                                 <td>
-                                    <img class="rounded-full max-w-10" style="width: 40px" src="" alt="activity-user" />
+                                    <h6 class="mb-1 fw-semibold">@item.Name</h6>
+                                    <small class="text-muted">@item.CategoryName</small>
                                 </td>
+
+                               
                                 <td>
-                                    <h6 class="mb-1">Isabella Christensen</h6>
-                                    <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
+                                    <h6 class="mb-1">@item.WearTitle</h6>
+                                    <small class="text-muted">@item.WearSubtitle</small>
                                 </td>
+
+                               
                                 <td>
-                                    <h6 class="text-muted">
-                                        <i class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                        11 MAY 12:56
-                                    </h6>
+                                    @if (item.IsActive)
+                                    {
+                                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">
+                                            ● Aktif
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">
+                                            ● Pasif
+                                        </span>
+                                    }
                                 </td>
-                                <td>
-                                    <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                    <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
+
+                               
+                                <td class="text-end">
+                                    <a asp-area="Admin"
+                                       asp-controller="Product"
+                                       asp-action="UpdateProduct"
+                                       asp-route-id="@item.ProductId"
+                                       class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                        Düzenle
+                                    </a>
                                 </td>
                             </tr>
-
-
                         }
-
                     </tbody>
                 </table>
             </div>
