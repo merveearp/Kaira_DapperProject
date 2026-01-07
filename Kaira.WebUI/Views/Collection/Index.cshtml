@@ -1,0 +1,48 @@
+﻿@model List<ResultCollectionDto>
+
+@{
+    ViewData["Title"] = "Koleksiyonlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="kaira-collections py-5">
+    <div class="container">
+
+        <div class="text-center mb-6">
+            <h1 class="collections-title">Koleksiyonlarımız</h1>
+            <p class="collections-subtitle">
+                Kaira’nın zamansız çizgilerini yansıtan özel koleksiyonları keşfedin.
+            </p>
+        </div>
+
+        <div class="collections-list-x">
+
+            @foreach (var item in Model)
+            {
+                <div class="collection-item-x">
+
+                    <div class="collection-image-x">
+                        <img src="@item.ImageUrl"
+                             alt="@item.Title"
+                             class="img-fluid">
+                    </div>
+
+                    <div class="collection-content-x">
+                        <h3 class="collection-title-x">
+                            @item.Title
+                        </h3>
+
+                        <p class="collection-description-x">
+                            @item.Description
+                        </p>
+
+                        <span class="collection-divider-x"></span>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>

@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Kaira.WebUI.DTOs.AIDtos;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Kaira.WebUI.ViewComponents.WebUIHome
+public class _UIAIChatComponent : ViewComponent
 {
-    public class _UIAIChatComponent :ViewComponent
+    public IViewComponentResult Invoke(AIStyleResponseDto model)
     {
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            return View();
-        }
+        return View(model);
     }
 }

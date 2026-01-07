@@ -1,0 +1,44 @@
+﻿@model UpdateAboutDto
+
+@{
+    ViewData["Title"] = "Hakkımızda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Component.InvokeAsync("_UICoverImageComponent")
+
+<section class="kaira-about-page py-5">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <div class="text-center mb-5">
+                    <h1 class="about-title">
+                        @Model.Title
+                    </h1>
+
+                    
+                        <p class="about-description">
+                            @Model.Description
+                        </p>
+                    
+                </div>
+
+                <div class="about-image mb-5">
+                        <img src="@Model.ImageUrl"
+                             alt="@Model.Title"
+                             class="img-fluid rounded">
+                    </div>
+                
+
+                    <div class="about-text">
+                        @Html.Raw(Model.Text)
+                    </div>
+                
+
+            </div>
+        </div>
+
+    </div>
+</section>

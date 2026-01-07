@@ -8,7 +8,7 @@ namespace Kaira.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var values = await _productRepository.GetAllAsync();
-            return View();
+            return View(values);
         }
 
         public async Task<IActionResult> ProductDetail(int id)

@@ -7869,3 +7869,89 @@ table.dataTable thead tr >.dtfc-fixed-start:is([data-pc-theme="dark"] *),table.d
         font-size: 28px;
         color: #111;
     }
+
+.product-image {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
+}
+
+/* Pasif ürün görseli */
+.image-passive {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+/* Pasif ürün satırı */
+.table-inactive {
+    background-color: #f8f9fa;
+}
+
+/* ============================
+   ADMIN - CREATE PRODUCT
+   ============================ */
+
+.create-product-wrapper {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.create-product-form {
+    flex: 0 0 65%;
+}
+
+.create-product-preview {
+    flex: 0 0 35%;
+}
+
+.preview-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.preview-box {
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fafafa;
+    text-align: center;
+}
+
+    .preview-box img {
+        width: 70%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+/* scroll'da sabit */
+.preview-card {
+    position: sticky;
+    top: 20px;
+}
+/* =========================
+   ADMIN TEXT LOGO
+   ========================= */
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #111;
+}
+
+.logo-text-sub {
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-left: 6px;
+    color: #555;
+}
+
+/* hover (çok hafif) */
+.logo-link:hover .logo-text {
+    color: #000;
+}

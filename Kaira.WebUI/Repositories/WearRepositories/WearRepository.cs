@@ -12,7 +12,7 @@ namespace Kaira.WebUI.Repositories.WearRepositories
         private readonly IDbConnection _db = context.CreateConnection();
         public async Task CreateAsync(CreateWearDto createDto)
         {
-            var query = "Insert into Products (Name,ImageUrl,Description,Price,CategoryId,WearId,IsActive) values (@Name,@ImageUrl,@Description,@Price,@Categoryıd,@WearId,@IsActive";
+            var query = "Insert into Products (Name,ImageUrl,Description,Price,CategoryId,WearId,IsHome) values (@Name,@ImageUrl,@Description,@Price,@Categoryıd,@WearId,@IsHome";
             var parameters = new DynamicParameters(createDto);
             await _db.ExecuteAsync(query, parameters);
         }
@@ -107,7 +107,7 @@ namespace Kaira.WebUI.Repositories.WearRepositories
 
         public async Task UpdateAsync(UpdateWearDto updateDto)
         {
-            var query = "Update Wears Name=@Name,ImageUrl=@ImageUrl,Description=@Description,Price=@Price,CategoryId=@CategoryId,WearId=@WearId,IsActive=@IsActive values where WearId=@WearId";
+            var query = "Update Wears Name=@Name,ImageUrl=@ImageUrl,Description=@Description,Price=@Price,CategoryId=@CategoryId,WearId=@WearId,IsHome=@IsHome values where WearId=@WearId";
             var parameters = new DynamicParameters(updateDto);
             await _db.ExecuteAsync(query, parameters);
         }

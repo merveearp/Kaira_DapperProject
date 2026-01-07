@@ -1,15 +1,30 @@
-﻿<nav class="pc-sidebar">
+﻿
+@*
+    _AdminLayoutSidebarComponent
+*@
+
+<nav class="pc-sidebar">
     <div class="navbar-wrapper">
-        <div class="m-header flex items-center py-4 px-6 h-header-height">
-            <img src="~/Admin/dist/assets/images/logo0.jpg"
-                 class="img-fluid logo logo-lg"
-                 alt="logo" />
+        <div class="m-header d-flex align-items-center py-4 px-6 h-header-height">
+
+            <a asp-area=""
+               asp-controller="Home"
+               asp-action="Index"
+               class="logo-link d-flex align-items-center text-decoration-none">
+
+                <span class="logo-text">
+                    KAIRA <span class="logo-text-sub">COLLECTION</span>
+                </span>
+
+            </a>
+
         </div>
+
 
         <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
             <ul class="pc-navbar">
 
-                <!-- DASHBOARD -->
+     
                 <li class="pc-item">
                     <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="pc-link">
                         <span class="pc-micon"><i data-feather="home"></i></span>
@@ -17,7 +32,6 @@
                     </a>
                 </li>
 
-                <!-- CONTENT -->
                 <li class="pc-item pc-hasmenu">
                     <a asp-area="Admin" asp-controller="About" asp-action="Index" class="pc-link">
                         <span class="pc-micon"><i data-feather="user"></i></span>
@@ -39,7 +53,6 @@
                     </a>
                 </li>
 
-                <!-- LISTS -->
                 <li class="pc-item pc-caption">
                     <label>Listeler</label>
                     <i data-feather="list"></i>
@@ -59,18 +72,23 @@
                     </a>
                 </li>
 
-                <li class="pc-item">
-                    <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="pc-link">
-                        <span class="pc-micon"><i data-feather="shopping-bag"></i></span>
-                        <span class="pc-mtext">Ürünler</span>
-                    </a>
-                </li>
+               
                 <li class="pc-item">
                     <a asp-area="Admin" asp-controller="Wear" asp-action="Index" class="pc-link">
                         <span class="pc-micon"> <i data-feather="layers"></i> </span>
                         <span class="pc-mtext">Giyim Kategorisi</span>
                     </a>
                 </li>
+
+                <li class="pc-item">
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="pc-link">
+                        <span class="pc-micon"><i data-feather="briefcase"></i></span>
+                        <span class="pc-mtext">Ürünler</span>
+                    </a>
+                </li>
+
+
+
                 <li class="pc-item">
                     <a asp-area="Admin" asp-controller="Collection" asp-action="Index" class="pc-link">
                         <span class="pc-micon"><i data-feather="layers"></i></span>
@@ -87,7 +105,7 @@
                 <li class="pc-item">
                     <a asp-area="Admin" asp-controller="Logo" asp-action="Index" class="pc-link">
                         <span class="pc-micon"><i data-feather="image"></i></span>
-                        <span class="pc-mtext">Logo Görselleri </span>
+                        <span class="pc-mtext">Logo Görselleri</span>
                     </a>
                 </li>
 

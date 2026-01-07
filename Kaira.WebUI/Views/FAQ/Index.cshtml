@@ -1,0 +1,52 @@
+﻿@model List<ResultFAQDto>
+
+@{
+    ViewData["Title"] = "Sıkça Sorulan Sorular";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Component.InvokeAsync("_UICoverImageComponent")
+<section class="kaira-faq-section py-5">
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+            <h2 class="text-uppercase mb-3">Sıkça Sorulan Sorular</h2>
+            <p class="text-muted">
+                Kaira alışveriş deneyiminizle ilgili merak edilen tüm soruların cevaplarını burada bulabilirsiniz.
+            </p>
+        </div>
+
+
+        <div class="kaira-faq-list">
+
+            @foreach (var item in Model)
+            {
+                <div class="kaira-faq-item">
+
+                    <button class="kaira-faq-question"
+                            type="button"
+                            onclick="toggleFaq(this)">
+                        <span>@item.Question</span>
+                        <span class="kaira-faq-icon">+</span>
+                    </button>
+
+                    <div class="kaira-faq-answer">
+                        <p>
+                            @item.Answer
+                        </p>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>
+<script>
+    function toggleFaq(button) {
+        const item = button.closest('.kaira-faq-item');
+        item.classList.toggle('active');
+    }
+</script>

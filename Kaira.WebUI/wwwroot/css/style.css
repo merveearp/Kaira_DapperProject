@@ -1868,11 +1868,7 @@ a.btn-link.text-light:after {
     justify-content: center;
 }
 
-.collection-image {
-    max-width: 100%; /* görsel boyutu */
-    max-height: 100%;
-    object-fit: contain; /* kırpma yok */
-}
+
 /* ===============================
    LOGO BAR
    =============================== */
@@ -2456,3 +2452,629 @@ a.btn-link.text-light:after {
     .kaira-back-btn:hover {
         text-decoration: underline;
     }
+.kaira-product-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all .3s ease;
+    position: relative;
+}
+
+    .kaira-product-card:hover {
+        transform: translateY(-4px);
+    }
+
+    /* OUT OF STOCK */
+    .kaira-product-card.out-of-stock img {
+        filter: grayscale(100%);
+        opacity: 0.75;
+    }
+
+.stock-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 10px;
+    z-index: 2;
+}
+
+/* Image */
+.product-image {
+    position: relative;
+}
+
+    .product-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+/* Text */
+.product-content {
+    padding: 14px;
+    text-align: center;
+}
+
+.product-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.product-wear,
+.product-category {
+    display: block;
+    font-size: 13px;
+    color: #777;
+    text-decoration: none;
+}
+.product-chip {
+    display: inline-block;
+    margin: 4px 4px 0;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all .25s ease;
+    border: 1px solid transparent;
+}
+
+/* Wear */
+.wear-chip {
+    background: #f5f5f5;
+    color: #111;
+}
+
+    .wear-chip:hover {
+        background: #111;
+        color: #fff;
+    }
+
+/* Category */
+.category-chip {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+    .category-chip:hover {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+    }
+.kaira-product-detail img {
+    width: 100%;
+    border-radius: 6px;
+}
+.product-image-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+    .product-image-stack img {
+        width: 100%;
+        max-height: 360px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+/* PRODUCT TITLE */
+.product-title {
+    font-size: 34px; /* ⬆ büyük */
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+
+/* PRICE */
+.product-price {
+    font-size: 26px; /* ⬆ fiyat öne çıksın */
+    font-weight: 700;
+    color: #111;
+}
+
+/* DESCRIPTION */
+.product-description {
+    margin-top: 18px;
+    font-size: 15px; /* ⬆ okunur */
+    line-height: 1.7;
+    color: #444;
+}
+
+.stock-status.in-stock {
+    color: #198754;
+}
+
+.stock-status.out-of-stock {
+    color: #dc3545;
+}
+
+/* STOCK */
+.stock-status {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* WEAR */
+.wear-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wear-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* CATEGORY */
+.category-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+}
+
+
+/* CATEGORY */
+.best-seller-category {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+    text-decoration: none;
+}
+
+    .best-seller-category:hover {
+        color: #111;
+    }
+
+/* PRICE */
+.best-seller-price {
+    display: block;
+    margin-top: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.related-wear {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+}
+
+.related-wear-sub {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.related-product-price {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.kaira-about-page {
+    background-color: #fff;
+}
+
+.about-title {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.about-description {
+    font-size: 16px;
+    color: #666;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.about-image img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.about-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+}
+/* ===============================
+   KAIRA COLLECTION COMPONENT
+   =============================== */
+
+.kaira-collection-section {
+    background-color: #f8f9fa;
+    overflow: hidden;
+    position: relative;
+}
+
+    /* BIG TITLE */
+    .kaira-collection-section .title-xlarge {
+        font-size: 72px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: rgba(0, 0, 0, 0.04);
+        position: absolute;
+        top: -10px;
+        left: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+/* SWIPER */
+.kaira-collection-swiper {
+    position: relative;
+    z-index: 2;
+}
+
+/* SLIDE ITEM */
+.kaira-collection-section .collection-item {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* CONTENT */
+.kaira-collection-section .collection-content {
+    background: #fff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    border-radius: 12px;
+}
+
+    .kaira-collection-section .collection-content h3 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .kaira-collection-section .collection-content p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #444;
+    }
+
+/* ARROWS */
+.kaira-collection-prev,
+.kaira-collection-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.kaira-collection-prev {
+    left: -20px;
+}
+
+.kaira-collection-next {
+    right: -20px;
+}
+
+    .kaira-collection-prev:hover,
+    .kaira-collection-next:hover {
+        transform: translateY(-50%) scale(1.08);
+    }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .kaira-collection-section .collection-item {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .kaira-collection-section .collection-image {
+        height: 360px;
+    }
+
+    .kaira-collection-prev,
+    .kaira-collection-next {
+        display: none;
+    }
+}
+/* ===============================
+   KAIRA VIDEO SECTION (FIXED)
+   =============================== */
+
+.kaira-video-section {
+    background: #000;
+}
+
+    /* CONTENT */
+    .kaira-video-section .video-content {
+        position: relative;
+        height: 520px;
+        overflow: hidden;
+    }
+
+    /* IMAGE */
+    .kaira-video-section .video-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.65);
+        transition: transform 1s ease;
+    }
+
+    /* HOVER */
+    .kaira-video-section:hover .video-image {
+        transform: scale(1.05);
+    }
+
+    /* OVERLAY */
+    .kaira-video-section .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient( to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6) );
+        z-index: 1;
+    }
+
+    /* CENTER CONTENT */
+    .kaira-video-section .video-center-content {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+    }
+
+    /* TITLE */
+    .kaira-video-section .video-title {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 32px;
+        letter-spacing: 1px;
+    }
+
+/* PLAY BUTTON */
+.video-play-btn {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+}
+
+    .video-play-btn svg {
+        fill: #111;
+        z-index: 2;
+    }
+
+    /* ROTATING TEXT */
+    .video-play-btn .text-rotate {
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        animation: videoRotate 12s linear infinite;
+    }
+
+    /* HOVER */
+    .video-play-btn:hover {
+        transform: scale(1.12);
+    }
+
+/* ROTATION */
+@keyframes videoRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .kaira-video-section .video-content {
+        height: 380px;
+    }
+
+    .kaira-video-section .video-title {
+        font-size: 28px;
+    }
+}
+/* =========================
+   KAIRA FAQ
+   ========================= */
+
+.kaira-faq-section {
+    background-color: #fff;
+}
+
+.kaira-faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.kaira-faq-item {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 0;
+}
+
+.kaira-faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
+
+.kaira-faq-icon {
+    font-size: 20px;
+    transition: transform .3s ease;
+}
+
+.kaira-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+}
+
+    .kaira-faq-answer p {
+        margin-top: 14px;
+        font-size: 14px;
+        color: #555;
+        line-height: 1.7;
+    }
+
+/* ACTIVE STATE */
+.kaira-faq-item.active .kaira-faq-answer {
+    max-height: 300px;
+}
+
+.kaira-faq-item.active .kaira-faq-icon {
+    transform: rotate(45deg);
+}
+/* IMAGE */
+.kaira-collection-section .collection-media {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.collection-image-x {
+    max-width: 50%; /* görsel boyutu */
+    max-height: 70%;
+    object-fit: contain; /* kırpma yok */
+}
+
+
+
+.kaira-collection-section .collection-image-x {
+    width: 80%;
+    height: 520px;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.kaira-collection-section .collection-media:hover .collection-image-x {
+    transform: scale(1.05);
+}
+/* =========================
+   KAIRA COLLECTIONS
+   ========================= */
+
+.kaira-collections {
+    background-color: #fff;
+}
+
+.collections-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* item */
+.collection-item-x {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* image */
+.collection-image-x {
+    flex: 0 0 45%;
+}
+
+    .collection-image-x img {
+        width: 80%;
+        height: auto;
+        display: block;
+    }
+
+/* content */
+.collection-content-x {
+    flex: 1;
+}
+
+.collection-title-x {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.collection-description-x {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 520px;
+}
+
+.collection-divider-x {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #111;
+    margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 991px) {
+    .collection-item-x {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .collection-description-x {
+        max-width: 100%;
+    }
+
+    .collection-divider-x {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

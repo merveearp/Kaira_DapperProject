@@ -1,22 +1,38 @@
-﻿
+﻿@model UpdateVideoDto
 @*
    _UIVideoComponent
 *@
-<section class="video py-5 overflow-hidden">
+
+<section class="kaira-video-section py-5 overflow-hidden">
     <div class="container-fluid">
         <div class="row">
             <div class="video-content open-up" data-aos="zoom-out">
+
+
                 <div class="video-bg">
-                    <img src="~/images/video-image.jpg" alt="video" class="video-image img-fluid">
+                    <img src="@Model.BackGroundImageUrl"
+                         alt="video"
+                         class="video-image img-fluid">
                 </div>
-                <div class="video-player">
-                    <a class="youtube" href="https://www.youtube.com/embed/pjtsGzQjFM4">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
+
+
+                <div class="video-overlay"></div>
+
+                <div class="video-center-content">
+                    <h2 class="video-title">
+                        Kaira’nın Dünyasını Keşfet
+                    </h2>
+
+                    <a class="youtube video-play-btn" href="/Home/Index">
+                        <svg width="26" height="26" viewBox="0 0 24 24">
                             <use xlink:href="#play"></use>
                         </svg>
-                        <img src="~/images/text-pattern.png" alt="pattern" class="text-rotate">
+                        <img src="~/images/text-pattern.png"
+                             alt="pattern"
+                             class="text-rotate">
                     </a>
                 </div>
+
             </div>
         </div>
     </div>

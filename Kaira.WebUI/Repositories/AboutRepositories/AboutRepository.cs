@@ -17,7 +17,7 @@ namespace Kaira.WebUI.Repositories.AboutRepositories
 
         public async Task UpdateAsync(UpdateAboutDto updateDto)
         {
-            var query = "Update Abouts set Title=@Title, Description=@Description where AboutId=@AboutId";
+            var query = "Update Abouts set Title=@Title, Description=@Description ImageUrl=@ImageUrl , Text=@Text where AboutId=@AboutId";
             var parameters = new DynamicParameters(updateDto);
             await _db.ExecuteAsync(query, parameters);
         }

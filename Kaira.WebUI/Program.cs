@@ -1,16 +1,27 @@
 using Kaira.WebUI.Context;
 using Kaira.WebUI.Extensions;
+using Kaira.WebUI.Models;
+using Kaira.WebUI.Services.AIServices;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddRepository();
 builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+builder.Services.Configure<OpenAISettings>
+    (
+    builder.Configuration.GetSection("OpenAI")
+    );
+builder.Services.AddHttpClient<IAIStyleService, AIStyleService>();
+builder.Services.AddSession();
+
+
+
+var app = builder.Build();
+app.UseSession();
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

@@ -25,7 +25,13 @@ namespace Kaira.WebUI.Repositories.ProductRepositories
 
         public async Task<IEnumerable<ResultProductDto>> GetAllAsync()
         {
-            var query = "Select * From Products ";
+            var query = @"Select
+                         p.* ,
+                         w.Title AS WearTitle,
+                         w.Subtitle AS WearSubtitle,
+                         c.Name AS CategoryName
+                         From Products p inner join Wears w on p.WearId=w.WearId 
+                         inner join Categories c on c.CategoryId=p.CategoryId ";
             return await _db.QueryAsync<ResultProductDto>(query);
         }
 
@@ -42,7 +48,7 @@ namespace Kaira.WebUI.Repositories.ProductRepositories
             var query = "Select * From Products where ProductId=@ProductId";
             var parameters = new DynamicParameters();
             parameters.Add("ProductId", id);
-            return await _db.QueryFirstOrDefaultAsync<UpdateProductDto>(query, id);
+            return await _db.QueryFirstOrDefaultAsync<UpdateProductDto>(query, parameters);
         }
 
         public async Task<IEnumerable<ResultProductDto>> GetByWearIdAsync(int id)
@@ -62,7 +68,13 @@ namespace Kaira.WebUI.Repositories.ProductRepositories
 
         public async Task<ResultProductDto> GetProductDetailAsync(int id)
         {
-            var query = "Select * From Products where ProductId=@ProductId";
+            var query = @"Select
+                         p.* ,
+                         w.Title AS WearTitle,
+                         w.Subtitle AS WearSubtitle,
+                         c.Name AS CategoryName
+                         From Products p inner join Wears w on p.WearId=w.WearId 
+                         inner join Categories c on c.CategoryId=p.CategoryId where ProductId=@ProductId";
             var parameters = new DynamicParameters();
             parameters.Add("ProductId", id);
             return await _db.QueryFirstOrDefaultAsync<ResultProductDto>(query, parameters);
@@ -70,7 +82,13 @@ namespace Kaira.WebUI.Repositories.ProductRepositories
 
         public async Task<IEnumerable<ResultProductDto>> GetIsActiveAsync()
         {
-            var query = "Select * From Products where IsActive=1";
+            var query = @"Select
+                         p.* ,
+                         w.Title AS WearTitle,
+                         w.Subtitle AS WearSubtitle,
+                         c.Name AS CategoryName
+                         From Products p inner join Wears w on p.WearId=w.WearId 
+                         inner join Categories c on c.CategoryId=p.CategoryId where IsActive=1";
             return await _db.QueryAsync<ResultProductDto>(query);
         }
 

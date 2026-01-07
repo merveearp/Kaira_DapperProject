@@ -1,0 +1,101 @@
+﻿@model List<ResultProductDto>
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="kaira-product-page py-5">
+
+    <div class="container mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold">Ürünler</h2>
+
+            <div class="d-flex gap-2">
+                <a href="javascript:history.back()" class="btn btn-outline-dark btn-sm">
+                    ← Geri Dön
+                </a>
+                <a href="/" class="btn btn-dark btn-sm">
+                    Ana Sayfa
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                var isOutOfStock = !item.IsActive;
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+
+                    <div class="kaira-product-card @(isOutOfStock ? "out-of-stock" : "")">
+
+                        <!-- Image -->
+                        <div class="product-image">
+
+                            @if (isOutOfStock)
+                            {
+                                <span class="stock-badge">
+                                    Şu an stokta kalmadı
+                                </span>
+                            }
+
+                            <img src="@item.CoverImage" alt="@item.Name">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="product-content">
+
+                            <h6 class="product-name">
+                                @item.Name
+                            </h6>
+
+                            <div class="product-price">
+                                ₺@item.Price.ToString("N0")$
+                            </div>
+
+                            <a asp-controller="Product"
+                               asp-action="GetWearByProduct"
+                               asp-route-id="@item.WearId"
+                               class="product-chip wear-chip">
+                                @item.WearSubtitle
+                            </a>
+
+                            <a asp-controller="Product"
+                               asp-action="GetCategoryByProduct"
+                               asp-route-id="@item.CategoryId"
+                               class="product-chip category-chip">
+                                @item.CategoryName
+                            </a>
+
+
+                            @if (!isOutOfStock)
+                            {
+                                <a asp-controller="Product"
+                                   asp-action="ProductDetail"
+                                   asp-route-id="@item.ProductId"
+                                   class="btn btn-outline-dark btn-sm w-100 mt-3">
+                                    Ürünü İncele
+                                </a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-outline-secondary btn-sm w-100 mt-3" disabled>
+                                    Stokta Yok
+                                </button>
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>

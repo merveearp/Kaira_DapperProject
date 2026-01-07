@@ -27,6 +27,21 @@
 
 @await Component.InvokeAsync("_UILogoComponent")
 
-@await Component.InvokeAsync("_UIAIChatComponent")
+@model Kaira.WebUI.DTOs.AIDtos.AIStyleResponseDto
+
+@await Component.InvokeAsync("_UIAIChatComponent", new { model = Model })
 
 @await Component.InvokeAsync("_UICoverImageComponent")
+
+
+@if (ViewBag.OpenModal == true)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = new bootstrap.Modal(
+                document.getElementById('aiStyleModal')
+            );
+            modal.show();
+        });
+    </script>
+}

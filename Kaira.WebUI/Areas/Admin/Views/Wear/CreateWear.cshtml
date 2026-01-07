@@ -1,0 +1,110 @@
+﻿@model CreateWearDto
+
+@{
+    ViewData["Title"] = "Giyim İçerik Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="admin-create-product">
+
+    <form method="post">
+
+        <div class="create-product-wrapper">
+
+
+            <div class="create-product-form">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold mb-3">Ürün Bilgileri</h5>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Başlık</label>
+                            <input asp-for="Title" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Alt Başlık</label>
+                            <input asp-for="Subtitle" class="form-control" />
+                        </div>
+
+                        <h6 class="fw-semibold mt-4 mb-2">Ürün Görselleri</h6>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kapak Görseli</label>
+                            <input asp-for="ImageUrl" class="form-control image-input" data-preview="coverPreview" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Kategori</label>
+                            <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select"></select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Açıklama</label>
+                            <textarea asp-for="Description" rows="3" class="form-control"></textarea>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6 d-flex align-items-end">
+                                <div class="form-check">
+                                    <input asp-for="IsHome" class="form-check-input" />
+                                    <label class="form-check-label">Ana sayfada gösterilsin mi ? </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="create-product-preview">
+                <div class="card border-0 shadow-sm preview-card">
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold mb-3">Görsel Önizleme</h5>
+
+                        <div class="preview-grid">
+                            <div class="preview-box">
+                                <img id="coverPreview" src="/images/no-image.png">
+                                <span>Kapak</span>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-4 d-flex justify-content-end gap-2">
+            <button class="btn btn-primary">Kaydet</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Vazgeç</a>
+        </div>
+
+    </form>
+</div>
+
+
+<script>
+    document
+        .querySelectorAll('#admin-create-product .image-input')
+        .forEach(input => {
+            input.addEventListener('input', function () {
+
+                const previewId = this.dataset.preview;
+                const previewImg = document.getElementById(previewId);
+
+                previewImg.src = this.value
+                    ? this.value
+                    : "/images/no-image.png";
+            });
+        });
+</script>
+
+

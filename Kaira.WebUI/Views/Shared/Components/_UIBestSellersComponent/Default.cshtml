@@ -1,147 +1,87 @@
-﻿
+﻿@model List<ResultProductDto>
 @*
    _UIBestSellersComponent
 *@
-<section id="best-sellers" class="best-sellers product-carousel py-5 position-relative overflow-hidden">
+
+
+<section id="best-sellers-section"
+         class="best-sellers product-carousel py-5 position-relative overflow-hidden">
+
     <div class="container">
+
+
         <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-            <h4 class="text-uppercase">Best Selling Items</h4>
-            <a href="index.html" class="btn-link">View All Products</a>
+            <h4 class="text-uppercase">Fiyat Performans Ürünleri</h4>
+            <a href="/Product/Index" class="btn-link">
+                Bütün Ürünleri İncele
+            </a>
         </div>
-        <div class="swiper product-swiper open-up" data-aos="zoom-out">
-            <div class="swiper-wrapper d-flex">
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-4.jpg" alt="categories" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Dark florish onepiece</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
+
+
+        <div class="swiper best-seller-swiper open-up" data-aos="zoom-out">
+            <div class="swiper-wrapper">
+
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+
+                        <div class="product-item image-zoom-effect link-effect">
+                            <div class="image-holder">
+
+
+                                <a href="/Product/ProductDetail/@item.ProductId">
+                                    <img src="@(string.IsNullOrEmpty(item.Image1) ? item.CoverImage : item.Image1)"
+                                         alt="@item.Name"
+                                         class="product-image img-fluid">
+                                </a>
+
+
+                                <div class="product-content text-center mt-3">
+
+
+                                    <a href="/Product/GetCategoryByProduct/@item.CategoryId"
+                                       class="best-seller-category">
+                                        @item.CategoryName
+                                    </a>
+
+     
+                                    <h5 class="text-uppercase fs-6 mt-2">
+                                        <a href="/Product/ProductDetail/@item.ProductId">
+                                            Keşfet
+                                        </a>
+                                    </h5>
+
+
+                                    <span class="best-seller-price">
+                                        ₺@item.Price.ToString("N0")
+                                    </span>
+
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-3.jpg" alt="product" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Baggy Shirt</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-5.jpg" alt="categories" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Cotton off-white shirt</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-6.jpg" alt="categories" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Handmade crop sweater</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$50.00</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-9.jpg" alt="categories" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Dark florish onepiece</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="product-item image-zoom-effect link-effect">
-                        <div class="image-holder">
-                            <a href="index.html">
-                                <img src="~/images/product-item-10.jpg" alt="categories" class="product-image img-fluid">
-                            </a>
-                            <a href="index.html" class="btn-icon btn-wishlist">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#heart"></use>
-                                </svg>
-                            </a>
-                            <div class="product-content">
-                                <h5 class="text-uppercase fs-5 mt-3">
-                                    <a href="index.html">Cotton off-white shirt</a>
-                                </h5>
-                                <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
+
             </div>
-            <div class="swiper-pagination"></div>
+
+
+            <div class="swiper-pagination best-seller-pagination"></div>
         </div>
-        <div class="icon-arrow icon-arrow-left">
+
+
+        <div class="icon-arrow icon-arrow-left best-seller-prev">
             <svg width="50" height="50" viewBox="0 0 24 24">
                 <use xlink:href="#arrow-left"></use>
             </svg>
         </div>
-        <div class="icon-arrow icon-arrow-right">
+
+        <div class="icon-arrow icon-arrow-right best-seller-next">
             <svg width="50" height="50" viewBox="0 0 24 24">
                 <use xlink:href="#arrow-right"></use>
             </svg>
         </div>
+
     </div>
 </section>
