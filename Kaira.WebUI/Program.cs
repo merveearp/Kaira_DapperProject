@@ -2,6 +2,7 @@ using Kaira.WebUI.Context;
 using Kaira.WebUI.Extensions;
 using Kaira.WebUI.Models;
 using Kaira.WebUI.Services.AIServices;
+using Kaira.WebUI.Services.OpenAIServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,11 @@ builder.Services.Configure<OpenAISettings>
     (
     builder.Configuration.GetSection("OpenAI")
     );
-builder.Services.AddHttpClient<IAIStyleService, AIStyleService>();
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IOpenAIService, OpenAIService>();
+builder.Services.AddScoped<IAIStyleService, AIStyleService>();
+
 builder.Services.AddSession();
 
 

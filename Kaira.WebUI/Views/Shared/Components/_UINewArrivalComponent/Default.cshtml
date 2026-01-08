@@ -9,19 +9,24 @@
             <a href="/Product/Index" class="btn-link">Bütün Ürünleri Gör</a>
         </div>
         <div class="swiper product-swiper open-up" data-aos="zoom-out">
-            <div class="swiper-wrapper d-flex">@foreach(var item in Model)
+            <div class="swiper-wrapper d-flex">
+                @foreach(var item in Model)
                 {
                     
                 <div class="swiper-slide">
                     <div class="product-item image-zoom-effect link-effect">
                         <div class="image-holder position-relative">
-                            <a href="index.html">
-                                <img src="@item.Image2" alt="categories" class="product-image img-fluid">
+                                <a href="/Product/ProductDetail/@item.ProductId">
+                                <img src="@item.CoverImage" alt="categories" class="product-image img-fluid">
                             </a>
                            
                             <div class="product-content">
                                 <h5 class="element-title text-uppercase fs-5 mt-3">
-                                    <a href="/Product/ProductDetail/@item.ProductId">@item.Name</a>
+                                        <a href="/Product/ProductDetail/@item.ProductId">
+                                            <img src="@item.Image2"
+                                                 alt="@item.Name"
+                                                 class="product-image img-fluid">
+                                        </a>
                                 </h5>
                            <span>@item.CategoryName</span>
                            <span>@item.WearTitle</span>

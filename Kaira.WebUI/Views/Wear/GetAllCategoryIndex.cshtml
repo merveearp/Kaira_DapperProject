@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     var groupedCategories = Model
-        .GroupBy(x => new { x.CategoryName, x.CategoryImage })
+        .GroupBy(x => new { x.CategoryName, x.CategoryImage,x.CategoryId })
         .ToList();
 }
 
@@ -25,14 +25,20 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="kaira-category-card shadow-sm h-100">
                  
-                        <!-- Category Image -->
-                        <div class="kaira-category-image-wrapper">
+                   <div class="kaira-category-image-wrapper">
+                        <a asp-controller="Wear"
+                           asp-action="GetCategoryIdWear"
+                           asp-route-id="@category.Key.CategoryId"
+                           class="kaira-category-link">
+
                             <img src="@category.Key.CategoryImage"
                                  alt="@category.Key.CategoryName"
                                  class="img-fluid kaira-category-image" />
-                        </div>
+                        </a>
+                    </div>
 
-                        <!-- Category Content -->
+
+                       
                         <div class="kaira-category-content p-4">
 
                             <h4 class="kaira-category-title mb-3">

@@ -45,13 +45,21 @@
                            asp-route-id="@item.WearId"
                            class="wear-item-link">
 
-                            <span class="wear-item-subtitle">
-                                @item.Subtitle
-                            </span>
+                            <div class="wear-item-image">
+                                <img src="@item.ImageUrl"
+                                     alt="@item.Title"
+                                     class="wear-item-img" />
+                            </div>
 
-                            <h5 class="wear-item-title">
-                                @item.Title
-                            </h5>
+                            <div class="wear-item-content">
+                                <span class="wear-item-subtitle">
+                                    @item.Subtitle
+                                </span>
+
+                                <h5 class="wear-item-title">
+                                    @item.Title
+                                </h5>
+                            </div>
 
                         </a>
 
@@ -59,7 +67,30 @@
                 </div>
             }
 
+
         </div>
     </div>
 
 </section>
+
+<style> 
+
+    /* --- Görsel --- */
+    .wear-item-image {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .wear-item-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s ease;
+    }
+
+    .wear-item-card:hover .wear-item-img {
+        transform: scale(1.08);
+    }
+
+</style>

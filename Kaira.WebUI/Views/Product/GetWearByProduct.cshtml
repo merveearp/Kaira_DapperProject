@@ -31,15 +31,10 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-4 col-md-6">
-                <div class="product-card">
-
+                <div class="product-card @(item.IsActive ? "" : "out-of-stock")">
 
                     <div class="product-image">
                         <img src="@item.CoverImage" alt="product" />
-                    </div>
-
-
-                    <div class="product-content text-center">
 
                         @if (!item.IsActive)
                         {
@@ -47,17 +42,19 @@
                                 Bu ürün stokta bulunmamaktadır
                             </span>
                         }
-                        else
-                        {
-                            <a href="/Product/ProductDetail/@item.ProductId"
-                               class="product-link">
-                                Ürünü İncele
-                            </a>
-                        }
+                    </div>
+
+                    <div class="product-content text-center">
+
+                        <a href="/Product/ProductDetail/@item.ProductId"
+                           class="product-link">
+                            Ürünü İncele
+                        </a>
 
                         <div class="price mt-2">
                             @item.Price ₺
                         </div>
+
                     </div>
 
                 </div>

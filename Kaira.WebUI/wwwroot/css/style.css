@@ -3078,3 +3078,41 @@ a.btn-link.text-light:after {
         margin-right: auto;
     }
 }
+
+
+
+/* ===============================
+   KEŞFET LINK (k-wear-link-x)
+================================ */
+
+.k-wear-link-x {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 6px;
+    transition: all .3s ease;
+}
+
+    /* Alt çizgi efekti */
+    .k-wear-link-x::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 1px;
+        background: #000;
+        transition: width .35s ease;
+    }
+
+    .k-wear-link-x:hover {
+        color: #000;
+    }
+
+        .k-wear-link-x:hover::after {
+            width: 100%;
+        }

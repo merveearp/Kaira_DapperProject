@@ -1,5 +1,6 @@
 ﻿using Kaira.WebUI.DTOs.AIDtos;
 using Kaira.WebUI.Models;
+using Kaira.WebUI.Services.OpenAIServices;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,71 +10,43 @@ namespace Kaira.WebUI.Services.AIServices
 {
     public class AIStyleService : IAIStyleService
     {
-        private readonly HttpClient _httpClient;
-        private readonly OpenAISettings _openAISettings;
+        private readonly IOpenAIService _openAIService;
 
-        public AIStyleService(
-            HttpClient httpClient,
-            IOptions<OpenAISettings> openAIOptions)
+        public AIStyleService(IOpenAIService openAIService)
         {
-            _httpClient = httpClient;
-            _openAISettings = openAIOptions.Value;
+            _openAIService = openAIService;
         }
-
 
         public async Task<AIStyleResponseDto> GetStyleAsync(string userMessage)
         {
-            var systemPrompt = @"
-                Sen Kaira markası için çalışan bir moda stil danışmanısın.
-                Kullanıcıya kısa, net ve anlaşılır stil önerileri ver.
-                Cevabın sonunda kullanıcıyı ürünlerimizi incelemeye yönlendir.
+            var prompt = $@"
+             Kullanıcının isteğine göre stil danışmanlığı yap.
+             Sen Kaira markası için çalışan bir moda stil danışmanısın.
+             Kullanıcıya kısa, net ve anlaşılır stil önerileri ver.
+            - Kombin fikri ver
+            - Gerçek ürün adı kullanma
+               
+            - Genel ve temsili konuş
+             Cevabın sonunda kullanıcıyı 'Benzer parçalar için Kaira koleksiyonumuzu inceleyebilirsiniz.' şeklinde incelemeye yönlendir.
                 
-                ";
 
-            var requestBody = new
-            {
-                model = _openAISettings.Model,
-                messages = new[]
-                {
-                    new
-                    {
-                        role = "system",
-                        content = systemPrompt
-                    },
-                    new
-                    {
-                        role = "user",
-                        content = userMessage
-                    }
-                }
-            };
+        Mesaj: {userMessage}
+        ";
 
-            var jsonBody = JsonSerializer.Serialize(requestBody);
-
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.openai.com/v1/chat/completions"
-            );
-
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _openAISettings.ApiKey);
-
-            request.Content =
-                new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-            var response = await _httpClient.SendAsync(request);
-            var responseString = await response.Content.ReadAsStringAsync();
-
-            var json = JsonDocument.Parse(responseString);
-            var aiMessage = json.RootElement
-                .GetProperty("choices")[0]
-                .GetProperty("message")
-                .GetProperty("content")
-                .GetString();
+            var response = await _openAIService.SendAsync(prompt);
 
             return new AIStyleResponseDto
             {
-                Title = "Stil Danışmanı",
-                Description = aiMessage
+                Title = "AI Stil Önerisi",
+                Description = response
             };
         }
 
+       
     }
-}
+    }
+
+
+
+
+
