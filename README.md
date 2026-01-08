@@ -113,3 +113,27 @@ ASP.NET Core Developer
 ---
 
 ⭐ Projeyi beğendiysen yıldız vermeyi unutma
+Projeden alınan UI VE Admin görseller ; 
+
+![UI-1](https://github.com/user-attachments/assets/3ea0d4e6-1d91-4551-a06c-95a647aa1374)
+![UI-2](https://github.com/user-attachments/assets/169ef853-3926-4af7-80e2-9b59849e11b9)
+![UI-3](https://github.com/user-attachments/assets/e4706d6a-5593-41a0-a545-f6c035ca2b8d)
+![UI-4](https://github.com/user-attachments/assets/72fc94f0-67d3-4d10-9f81-deb6eaf80cb2)
+![UI-7](https://github.com/user-attachments/assets/6e5357f9-64d7-4b8b-ab67-ee36790dd1e4)
+![UI-9](https://github.com/user-attachments/assets/14909b28-9951-44d6-b02e-ae5a76b85a27)
+![ADMIN-1](https://github.com/user-attachments/assets/bddb8a93-d706-42b0-8da2-db8c9125b6f1)
+![ADMIN-4](https://github.com/user-attachments/assets/b17012da-fdc8-493c-8cea-c5c5aace90ea)
+![ADMIN-6](https://github.com/user-attachments/assets/040ca0ea-2558-4166-acc4-657a8963c9ab)
+![ADMIN-8](https://github.com/user-attachments/assets/38d43b15-c973-465a-b55f-17f71b980204)
+![ADMIN-12](https://github.com/user-attachments/assets/734fcb82-5adc-44f7-8756-8f95a52d0276)
+![ADMIN-9](https://github.com/user-attachments/assets/fcdfa636-d052-4982-87d6-e01d6431d660)
+
+
+
+
+
+
+
+
+
+
