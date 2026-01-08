@@ -1,6 +1,6 @@
 # 🖤 Kaira Fashion – ASP.NET Core MVC & Dapper Project
 
-**Kaira Fashion**, **ASP.NET Core MVC (.NET 8)** ve **Dapper** kullanılarak geliştirilmiş,
+**Kaira Fashion**, **ASP.NET Core MVC (.NET 9)** ve **Dapper** kullanılarak geliştirilmiş,
 moda / giyim temalı bir web uygulamasıdır.
 
 Proje; **örnek giyim ve moda e-ticaret siteleri incelenerek** tasarlanmış,
